@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -13,20 +14,32 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 
 @Entity
 @Table(name = "eticket_phim")
 public class Film extends BaseEntity {
-	
-	private String ten_phim;
-	private String bi_danh;
+	@Column(name="ten_phim")
+	@NotNull
+	@Size(min= 3, max = 50)
+	private String tenPhim;
+	@Column(name="bi_danh")
+	private String biDanh;
+	@Column(name="trailer")
 	private String trailer;
-	private String hinh_anh;
-	private String mo_ta;
-	private Date ngay_khoi_chieu;
-	private String the_loai;
+	@Column(name="hinh_anh")
+	private String hinhAnh;
+	@Column(name="mo_ta")
+	private String moTa;
+	@Column(name="ngay_khoi_chieu")
+	@NotNull
+	private Date ngayKhoiChieu;
+	@Column(name="the_loai")
+	@NotNull
+	private String theLoai;
 	
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 	@JoinTable( name = "eticket_phim_lich_chieu",
@@ -37,5 +50,79 @@ public class Film extends BaseEntity {
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<ShowTime> showTimes = new HashSet<>();
+	
+
+	public String getTenPhim() {
+		return tenPhim;
+	}
+
+	public void setTenPhim(String tenPhim) {
+		this.tenPhim = tenPhim;
+	}
+
+	public String getBiDanh() {
+		return biDanh;
+	}
+
+	public void setBiDanh(String biDanh) {
+		this.biDanh = biDanh;
+	}
+
+	public String getTrailer() {
+		return trailer;
+	}
+
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
+
+	public String getHinhAnh() {
+		return hinhAnh;
+	}
+
+	public void setHinhAnh(String hinhAnh) {
+		this.hinhAnh = hinhAnh;
+	}
+
+	public String getMoTa() {
+		return moTa;
+	}
+
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
+	}
+
+	public Date getNgayKhoiChieu() {
+		return ngayKhoiChieu;
+	}
+
+	public void setNgayKhoiChieu(Date ngayKhoiChieu) {
+		this.ngayKhoiChieu = ngayKhoiChieu;
+	}
+
+	public String getTheLoai() {
+		return theLoai;
+	}
+
+	public void setTheLoai(String theLoai) {
+		this.theLoai = theLoai;
+	}
+
+	public Set<Calendar> getCalendars() {
+		return calendars;
+	}
+
+	public void setCalendars(Set<Calendar> calendars) {
+		this.calendars = calendars;
+	}
+
+	public Set<ShowTime> getShowTimes() {
+		return showTimes;
+	}
+
+	public void setShowTimes(Set<ShowTime> showTimes) {
+		this.showTimes = showTimes;
+	}
+	
 	
 }
