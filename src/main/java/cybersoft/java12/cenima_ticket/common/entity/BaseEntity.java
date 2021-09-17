@@ -13,7 +13,7 @@ import javax.persistence.Version;
 public class BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false)
+	@Column(updatable = false, insertable = false)
 	protected Long id;
 	
 	@Version
