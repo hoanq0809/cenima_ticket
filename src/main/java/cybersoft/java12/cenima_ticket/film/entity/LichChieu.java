@@ -17,14 +17,14 @@ import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 
 @Entity
 @Table(name="eticket_lich_chieu")
-public class Calendar extends BaseEntity {
+public class LichChieu extends BaseEntity {
 	@Column(name = "ngay_chieu")
 	@NotNull
 	private Date ngayChieu;
 	
 	@ManyToMany(mappedBy = "calendars", fetch = FetchType.LAZY)
 	@JsonIgnore
-	private Set<Film> films = new HashSet<>();
+	private Set<Phim> films = new HashSet<>();
 
 	public Date getNgayChieu() {
 		return ngayChieu;
@@ -34,11 +34,11 @@ public class Calendar extends BaseEntity {
 		this.ngayChieu = ngayChieu;
 	}
 
-	public Set<Film> getFilms() {
+	public Set<Phim> getFilms() {
 		return films;
 	}
 
-	public void setFilms(Set<Film> films) {
+	public void setFilms(Set<Phim> films) {
 		this.films = films;
 	}
 	

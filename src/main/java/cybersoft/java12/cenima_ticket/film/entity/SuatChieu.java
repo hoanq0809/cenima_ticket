@@ -10,11 +10,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import cybersoft.java12.cenima_ticket.Rap.entity.Rap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 
 @Entity
-@Table(name="eticket_xuat_chieu")
-public class ShowTime extends BaseEntity {
+@Table(name="eticket_suat_chieu")
+public class SuatChieu extends BaseEntity {
 	
 	@Column(name = "gio_chieu")
 	@NotNull
@@ -25,9 +26,14 @@ public class ShowTime extends BaseEntity {
 	
 	@ManyToOne(optional = false)
 	@JoinColumn(name="film_id",insertable=false, updatable=false)
+	private Phim films;
 	
-	private Film films;
-
+	@Column(name="rap_id")
+	private int rapId;
+	@ManyToOne(optional = false)
+	@JoinColumn(name="rap_id", insertable = false, updatable = false)
+	private Rap rap;
+	
 	public LocalDateTime getGioChieu() {
 		return gioChieu;
 	}
@@ -44,11 +50,11 @@ public class ShowTime extends BaseEntity {
 		this.filmId = filmId;
 	}
 
-	public Film getFilms() {
+	public Phim getFilms() {
 		return films;
 	}
 
-	public void setFilms(Film films) {
+	public void setFilms(Phim films) {
 		this.films = films;
 	}
 	
