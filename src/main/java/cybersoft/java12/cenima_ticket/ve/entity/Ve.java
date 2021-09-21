@@ -16,6 +16,11 @@ import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 @Entity
 @Table(name = "eticket_ve")
 public class Ve extends BaseEntity {
+	@Column(name = "giaVe")
+	private int giaVe;
+	
+	@Column(name = "soGhe")
+	private String soGhe;
 	
 	@ManyToOne
 	@JoinColumn(name="thuocPhim")
