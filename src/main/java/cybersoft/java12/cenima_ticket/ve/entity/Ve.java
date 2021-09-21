@@ -18,12 +18,23 @@ import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 public class Ve extends BaseEntity {
 	@NotNull
 	private String maVe;
+	private boolean daDat=false;
+	@NotNull
+	private String loaiGhe;
+	@NotNull
+	private String stt;
+	@NotNull
+	private String maRap;
+	@NotNull
 	private int giaVe;
-	private String soGhe;
+	@NotNull
+	private String maGhe;
 	@ManyToOne
 	@JoinColumn(name="thuocPhim")
+	
 	private Phim thuocPhim;
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
+
 	private int idNguoiDung;
 	
 	@ManyToOne
