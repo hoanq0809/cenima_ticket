@@ -22,8 +22,11 @@ public class Ve extends BaseEntity {
 	@Column(name = "soGhe")
 	private String soGhe;
 	
-	@ManyToOne
-	@JoinColumn(name="thuocPhim")
+	@Column(name="phim_id")
+	private Long phimId;
+	
+	@ManyToOne(optional= false)
+	@JoinColumn(name="phim_id", insertable = false, updatable = false)
 	private Phim thuocPhim;
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
 	private int idNguoiDung;
