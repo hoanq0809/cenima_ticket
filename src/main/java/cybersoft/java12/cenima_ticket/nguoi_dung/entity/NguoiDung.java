@@ -19,21 +19,29 @@ import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 @Table(name = "eticket_nguoi_dung")
 public class NguoiDung extends BaseEntity {
 	@NotNull
-	@Column(unique = true)
+	@Column(name = "hoTen",unique = true)
 	@Size(min = 3, max = 50)
 	private String hoTen;
 	
 	@NotNull
 	@Email
-	@Column(unique = true)
+	@Column(name = "email", unique = true)
 	private String email;
 	
 	@NotNull
+	@Column(name = "matKhau")
 	private String matKhau;
 	
+	@Column(name = "soDienThoai")
 	private String soDienThoai;
+	
+	@Column(name = "avatar")
 	private String avatar;
+	
+	@Column(name = "ngaySinh")
 	private Date ngaySinh;
+	
+	@Column(name = "loaiNguoiDung")
 	private String loaiNguoiDung;
 	
 	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
