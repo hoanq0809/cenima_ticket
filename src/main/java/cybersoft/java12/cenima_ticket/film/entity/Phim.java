@@ -21,7 +21,7 @@ import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 
 @Entity
 @Table(name = "eticket_phim")
-public class Film extends BaseEntity {
+public class Phim extends BaseEntity {
 	@Column(name="ten_phim")
 	@NotNull
 	@Size(min= 3, max = 50)
@@ -46,10 +46,10 @@ public class Film extends BaseEntity {
 				joinColumns = @JoinColumn(name= "phim_id"),
 				inverseJoinColumns = @JoinColumn(name ="lich_chieu_id")
 			)
-	private Set<Calendar> calendars = new HashSet<>();
+	private Set<LichChieu> calendars = new HashSet<>();
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private Set<ShowTime> showTimes = new HashSet<>();
+	private Set<SuatChieu> showTimes = new HashSet<>();
 	
 
 	public String getTenPhim() {
@@ -108,19 +108,19 @@ public class Film extends BaseEntity {
 		this.theLoai = theLoai;
 	}
 
-	public Set<Calendar> getCalendars() {
+	public Set<LichChieu> getCalendars() {
 		return calendars;
 	}
 
-	public void setCalendars(Set<Calendar> calendars) {
+	public void setCalendars(Set<LichChieu> calendars) {
 		this.calendars = calendars;
 	}
 
-	public Set<ShowTime> getShowTimes() {
+	public Set<SuatChieu> getShowTimes() {
 		return showTimes;
 	}
 
-	public void setShowTimes(Set<ShowTime> showTimes) {
+	public void setShowTimes(Set<SuatChieu> showTimes) {
 		this.showTimes = showTimes;
 	}
 	
