@@ -18,6 +18,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
 @Table(name = "eticket_phim")
@@ -50,7 +51,8 @@ public class Phim extends BaseEntity {
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<SuatChieu> showTimes = new HashSet<>();
-	
+	@OneToMany(mappedBy ="thuocPhim" )
+	Set<Ve> lstVe=new HashSet<>();
 
 	public String getTenPhim() {
 		return tenPhim;
