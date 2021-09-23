@@ -35,10 +35,7 @@ public class CumRap extends BaseEntity {
 	 //	 lst phim theo rap
 	 
 	 
-	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST })
-	@JoinTable(name="eticket_danh_sach_phim",joinColumns = @JoinColumn(name="cum_rap_id"),
-	inverseJoinColumns = @JoinColumn(name="phim_id")
-			)
+	@OneToMany(mappedBy = "tenPhim",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	 private Set<Phim> lstPhim=new HashSet<>();
 
 	public String getTenCumRap() {

@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -55,8 +56,9 @@ public class Phim extends BaseEntity {
 	private Set<SuatChieu> showTimes = new HashSet<>();
 	@OneToMany(mappedBy ="maVe" )
 	Set<Ve> lstVe=new HashSet<>();
-	@ManyToMany(mappedBy = "lstPhim",fetch = FetchType.LAZY)
-	private Set<CumRap> rapChieu=new HashSet<>();
+	@ManyToOne(fetch = FetchType.LAZY,optional = false)
+	 @JoinColumn(name="rap_chieu",nullable = false)
+	private CumRap rapChieu;
 	public String getTenPhim() {
 		return tenPhim;
 	}
