@@ -1,6 +1,7 @@
 package cybersoft.java12.cenima_ticket.Rap.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -18,8 +19,11 @@ public class Ghe  extends BaseEntity{
 	private String loaiGhe;
 	@NotNull
 	private int soGhe;
+	@Column(name="rap_id")
+	private long rapID;
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name="thuocRap")
+	
+	@JoinColumn(name="rap_id",insertable = false,updatable = false)
 	private Rap thuocRap;
 		
 	@OneToOne

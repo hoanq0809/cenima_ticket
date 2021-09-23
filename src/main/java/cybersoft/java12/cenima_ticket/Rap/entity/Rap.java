@@ -27,7 +27,7 @@ public class Rap extends BaseEntity {
 	@Column(unique = true)
 	private String suatChieu;
 //	lstGhe
-	@OneToMany(mappedBy ="soGhe", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy ="thuocRap", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	Set<Ghe> lstGhe=new HashSet<>();
 	
 	@OneToMany(mappedBy = "rap", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
