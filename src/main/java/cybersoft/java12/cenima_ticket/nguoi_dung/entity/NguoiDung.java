@@ -1,8 +1,10 @@
 package cybersoft.java12.cenima_ticket.nguoi_dung.entity;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.ve.entity.ThongTinDatVe;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
@@ -46,4 +49,7 @@ public class NguoiDung extends BaseEntity {
 	
 	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
 	private Set<Ve> ve;
+	
+	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
+	private Set<ThongTinDatVe> thongTinDatVe = new HashSet<ThongTinDatVe>();
 }

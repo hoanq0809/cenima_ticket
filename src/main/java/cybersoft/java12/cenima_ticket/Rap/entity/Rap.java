@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
-import cybersoft.java12.cenima_ticket.film.entity.SuatChieu;
+import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 
 @Entity
 @Table(name="cinema_rap")
@@ -31,7 +31,7 @@ public class Rap extends BaseEntity {
 	Set<Ghe> lstGhe=new HashSet<>();
 	
 	@OneToMany(mappedBy = "rap", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-	private Set<SuatChieu> suatChieus = new HashSet<>();
+	private Set<LichChieu> suatChieus = new HashSet<>();
 	
 	public int getSoRap() {
 		return soRap;
