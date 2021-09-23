@@ -17,12 +17,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import cybersoft.java12.cenima_ticket.Rap.entity.CumRap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
 @Table(name = "eticket_phim")
 public class Phim extends BaseEntity {
+	
 	@Column(name="ten_phim")
 	@NotNull
 	@Size(min= 3, max = 50)
@@ -53,7 +55,8 @@ public class Phim extends BaseEntity {
 	private Set<SuatChieu> showTimes = new HashSet<>();
 	@OneToMany(mappedBy ="maVe" )
 	Set<Ve> lstVe=new HashSet<>();
-
+	@ManyToMany(mappedBy = "lstPhim",fetch = FetchType.LAZY)
+	private Set<CumRap> rapChieu=new HashSet<>();
 	public String getTenPhim() {
 		return tenPhim;
 	}

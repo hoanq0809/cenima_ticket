@@ -17,8 +17,9 @@ public class Ghe  extends BaseEntity{
 	@NotNull
 	private int soGhe;
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name="thuocRap")
+	@JoinColumn(name="rap_id",insertable = false,updatable = false)
 	private Rap thuocRap;
+		
 	public String getLoaiGhe() {
 		return loaiGhe;
 	}
