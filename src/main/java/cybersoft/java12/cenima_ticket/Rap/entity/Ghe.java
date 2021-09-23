@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.ve.entity.ThongTinDatVe;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 @Entity
 @Table(name="cinema_ghe")
@@ -26,6 +27,10 @@ public class Ghe  extends BaseEntity{
 	@JoinColumn(name = "idVe")
 	private Ve ve;
 	
+	@ManyToOne
+	@JoinColumn(name = "thong_tin_dat_ve_id", referencedColumnName = "id")
+	private ThongTinDatVe thongTinDatVe;
+	
 	public String getLoaiGhe() {
 		return loaiGhe;
 	}
@@ -38,5 +43,6 @@ public class Ghe  extends BaseEntity{
 	public void setSoGhe(int soGhe) {
 		this.soGhe = soGhe;
 	}
+	
 	
 }

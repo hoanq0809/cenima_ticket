@@ -42,15 +42,9 @@ public class Phim extends BaseEntity {
 	@NotNull
 	private String theLoai;
 	
-	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-	@JoinTable( name = "eticket_phim_lich_chieu",
-				joinColumns = @JoinColumn(name= "phim_id"),
-				inverseJoinColumns = @JoinColumn(name ="lich_chieu_id")
-			)
-	private Set<LichChieu> calendars = new HashSet<>();
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private Set<SuatChieu> showTimes = new HashSet<>();
+	private Set<LichChieu> showTimes = new HashSet<>();
 	@OneToMany(mappedBy ="thuocPhim" )
 	Set<Ve> lstVe=new HashSet<>();
 
@@ -110,19 +104,11 @@ public class Phim extends BaseEntity {
 		this.theLoai = theLoai;
 	}
 
-	public Set<LichChieu> getCalendars() {
-		return calendars;
-	}
-
-	public void setCalendars(Set<LichChieu> calendars) {
-		this.calendars = calendars;
-	}
-
-	public Set<SuatChieu> getShowTimes() {
+	public Set<LichChieu> getShowTimes() {
 		return showTimes;
 	}
 
-	public void setShowTimes(Set<SuatChieu> showTimes) {
+	public void setShowTimes(Set<LichChieu> showTimes) {
 		this.showTimes = showTimes;
 	}
 	
