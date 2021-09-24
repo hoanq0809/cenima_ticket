@@ -17,9 +17,9 @@ public class Ghe  extends BaseEntity{
 	@NotNull
 	private int soGhe;
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name="rap_id",insertable = false,updatable = false)
+	@JoinColumn(name="thuocRap")
 	private Rap thuocRap;
-	
+		
 	@OneToOne
 	@JoinColumn(name = "idVe")
 	private Ve ve;
@@ -39,6 +39,4 @@ public class Ghe  extends BaseEntity{
 	}
 	public void setSoGhe(int soGhe) {
 		this.soGhe = soGhe;
-	}
-	
 }
