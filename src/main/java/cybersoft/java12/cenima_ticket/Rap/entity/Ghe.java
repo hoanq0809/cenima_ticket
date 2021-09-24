@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
+import cybersoft.java12.cenima_ticket.ve.entity.ThongTinDatVe;
+
 @Entity
 @Table(name="cinema_ghe")
 public class Ghe  extends BaseEntity{
