@@ -8,18 +8,22 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.film.entity.Phim;
 
 @Entity
 @Table(name= "cinema_cumrap")
 public class CumRap extends BaseEntity {
 	@NotNull
-	 private String name;
+	@Column(name = "ten_cum_rap")
+	 private String tenCumRap;
 	@NotNull
 	 private String diaChi;
 	 @ManyToOne(fetch = FetchType.LAZY,optional = false)
@@ -29,11 +33,19 @@ public class CumRap extends BaseEntity {
 	 @OneToMany(mappedBy ="soRap",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	 private Set<Rap> lstRap=new HashSet<>();
 	 //	 lst phim theo rap
-	public String getName() {
-		return name;
+	 
+	 
+	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST })
+	@JoinTable(name="eticket_danh_sach_phim",joinColumns = @JoinColumn(name="cum_rap_id"),
+	inverseJoinColumns = @JoinColumn(name="phim_id")
+			)
+	 private Set<Phim> lstPhim=new HashSet<>();
+
+	public String getTenCumRap() {
+		return tenCumRap;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTenCumRap(String tenCumRap) {
+		this.tenCumRap = tenCumRap;
 	}
 	public String getDiaChi() {
 		return diaChi;

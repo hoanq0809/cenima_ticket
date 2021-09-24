@@ -1,31 +1,66 @@
 package cybersoft.java12.cenima_ticket.film.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import cybersoft.java12.cenima_ticket.Rap.entity.Rap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 
 @Entity
-@Table(name="eticket_lich_chieu")
+@Table(name="eticket_suat_chieu")
 public class LichChieu extends BaseEntity {
-	@Column(name = "ngay_chieu")
+	
+	@Column(name = "gio_chieu")
+	@NotNull
+	private LocalDateTime gioChieu;
+	@Column(name="ngay_chieu")
 	@NotNull
 	private Date ngayChieu;
-	
-	@ManyToMany(mappedBy = "calendars", fetch = FetchType.LAZY)
-	@JsonIgnore
-	private Set<Phim> films = new HashSet<>();
 
+	@Column(name="film_id",nullable = false)
+	private int filmId;
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name="film_id",insertable=false, updatable=false)
+	private Phim films;
+	
+	@Column(name="rap_id")
+	private int rapId;
+	@ManyToOne(optional = false)
+	@JoinColumn(name="rap_id", insertable = false, updatable = false)
+	private Rap rap;
+	
+	public LocalDateTime getGioChieu() {
+		return gioChieu;
+	}
+
+	public void setGioChieu(LocalDateTime gioChieu) {
+		this.gioChieu = gioChieu;
+	}
+
+	public int getFilmId() {
+		return filmId;
+	}
+
+	public void setFilmId(int filmId) {
+		this.filmId = filmId;
+	}
+
+	public Phim getFilms() {
+		return films;
+	}
+
+	public void setFilms(Phim films) {
+		this.films = films;
+	}
+	
 	public Date getNgayChieu() {
 		return ngayChieu;
 	}
@@ -34,13 +69,19 @@ public class LichChieu extends BaseEntity {
 		this.ngayChieu = ngayChieu;
 	}
 
-	public Set<Phim> getFilms() {
-		return films;
+	public int getRapId() {
+		return rapId;
 	}
 
-	public void setFilms(Set<Phim> films) {
-		this.films = films;
+	public void setRapId(int rapId) {
+		this.rapId = rapId;
 	}
-	
-	
+
+	public Rap getRap() {
+		return rap;
+	}
+
+	public void setRap(Rap rap) {
+		this.rap = rap;
+	}
 }

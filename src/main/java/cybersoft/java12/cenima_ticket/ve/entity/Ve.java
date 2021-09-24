@@ -32,11 +32,13 @@ public class Ve extends BaseEntity {
 	private Phim thuocPhim;
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
 	private int idNguoiDung;
-	
 	@ManyToOne
 	@JoinColumn(name = "IdNguoiDung")
 	private NguoiDung nguoiDung;
 	
 	@OneToOne(mappedBy = "ve",fetch = FetchType.LAZY)
 	private Ghe ghe;
+	
+	@OneToOne(mappedBy = "ve", fetch = FetchType.LAZY)
+	private ThongTinDatVe thongTinDatVe;
 }
