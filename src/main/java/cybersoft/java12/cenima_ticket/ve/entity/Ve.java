@@ -16,21 +16,17 @@ import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 @Entity
 @Table(name = "eticket_ve")
 public class Ve extends BaseEntity {
-	@NotNull
-	private String maVe;
-	private boolean daDat=false;
-	@NotNull
-	private String loaiGhe;
-	@NotNull
-	private String stt;
-	@NotNull
-	private String maRap;
-	@NotNull
+	@Column(name = "giaVe")
 	private int giaVe;
-	@NotNull
-	private String maGhe;
-	@ManyToOne
-	@JoinColumn(name="thuocPhim")
+	
+	@Column(name = "soGhe")
+	private String soGhe;
+	
+	@Column(name="phim_id")
+	private Long phimId;
+	
+	@ManyToOne(optional= false)
+	@JoinColumn(name="phim_id", insertable = false, updatable = false)
 	
 	private Phim thuocPhim;
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)

@@ -19,7 +19,15 @@ public class Ghe  extends BaseEntity{
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name="rap_id",insertable = false,updatable = false)
 	private Rap thuocRap;
-		
+	
+	@OneToOne
+	@JoinColumn(name = "idVe")
+	private Ve ve;
+	
+	@ManyToOne
+	@JoinColumn(name = "thong_tin_dat_ve_id", referencedColumnName = "id")
+	private ThongTinDatVe thongTinDatVe;
+	
 	public String getLoaiGhe() {
 		return loaiGhe;
 	}
