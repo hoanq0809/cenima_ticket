@@ -19,6 +19,7 @@ public class Ghe  extends BaseEntity{
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name="rap_id",insertable = false,updatable = false)
 	private Rap thuocRap;
+	
 	@OneToOne
 	@JoinColumn(name = "idVe")
 	private Ve ve;
