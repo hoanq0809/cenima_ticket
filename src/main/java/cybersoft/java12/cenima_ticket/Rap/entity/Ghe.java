@@ -5,14 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
-import cybersoft.java12.cenima_ticket.ve.entity.Ve;
-import cybersoft.java12.cenima_ticket.ve.entity.ThongTinDatVe;
-
 @Entity
 @Table(name="cinema_ghe")
 public class Ghe  extends BaseEntity{
@@ -23,15 +19,7 @@ public class Ghe  extends BaseEntity{
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name="rap_id",insertable = false,updatable = false)
 	private Rap thuocRap;
-	
-	@OneToOne
-	@JoinColumn(name = "idVe")
-	private Ve ve;
-	
-	@ManyToOne
-	@JoinColumn(name = "thong_tin_dat_ve_id", referencedColumnName = "id")
-	private ThongTinDatVe thongTinDatVe;
-	
+		
 	public String getLoaiGhe() {
 		return loaiGhe;
 	}
