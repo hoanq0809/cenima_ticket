@@ -22,9 +22,11 @@ public class Ghe  extends BaseEntity{
 	@OneToOne
 	@JoinColumn(name = "idVe")
 	private Ve ve;
+	
 	@ManyToOne
 	@JoinColumn(name = "thong_tin_dat_ve_id", referencedColumnName = "id")
 	private ThongTinDatVe thongTinDatVe;
+	
 	public String getLoaiGhe() {
 		return loaiGhe;
 	}
