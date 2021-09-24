@@ -40,4 +40,5 @@ public class Ghe  extends BaseEntity{
 	public void setSoGhe(int soGhe) {
 		this.soGhe = soGhe;
 		
+		
 }
