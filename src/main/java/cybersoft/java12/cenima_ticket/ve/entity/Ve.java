@@ -27,12 +27,9 @@ public class Ve extends BaseEntity {
 	
 	@ManyToOne(optional= false)
 	@JoinColumn(name="phim_id", insertable = false, updatable = false)
-	
 	private Phim thuocPhim;
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
-
 	private int idNguoiDung;
-	
 	@ManyToOne
 	@JoinColumn(name = "IdNguoiDung")
 	private NguoiDung nguoiDung;
