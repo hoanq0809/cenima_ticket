@@ -34,7 +34,7 @@ public class SwaggerConfig {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("Cybersoft Gira Application")
+				.title("Cybersoft eticket Application")
 				.description("This project is used for education purpose only.")
 				.contact(new Contact("Nguyễn Quang Hoà", "", "hoa.nguyen08091998@gmail.com"))
 				.license("MIT2")
