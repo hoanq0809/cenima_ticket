@@ -26,7 +26,7 @@ import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 public class Phim extends BaseEntity {
 	
 	@Column(name="ten_phim")
-	@NotNull
+//	@NotNull
 	@Size(min= 3, max = 50)
 	private String tenPhim;
 	@Column(name="bi_danh")
@@ -38,10 +38,10 @@ public class Phim extends BaseEntity {
 	@Column(name="mo_ta")
 	private String moTa;
 	@Column(name="ngay_khoi_chieu")
-	@NotNull
+//	@NotNull
 	private Date ngayKhoiChieu;
 	@Column(name="the_loai")
-	@NotNull
+//	@NotNull
 	private String theLoai;
 	
 	
