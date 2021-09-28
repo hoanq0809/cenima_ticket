@@ -19,7 +19,7 @@ import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.film.entity.Phim;
 
 @Entity
-@Table(name= "cinema_cumrap")
+@Table(name= "eticket_cumrap")
 public class CumRap extends BaseEntity {
 	@NotNull
 	@Column(name = "ten_cum_rap")

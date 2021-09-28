@@ -13,7 +13,7 @@ import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.ve.entity.ThongTinDatVe;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 @Entity
-@Table(name="cinema_ghe")
+@Table(name="eticket_ghe")
 public class Ghe  extends BaseEntity{
 	@NotNull
 	private String loaiGhe;

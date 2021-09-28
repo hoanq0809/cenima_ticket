@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.Rap.entity.Ghe;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 import cybersoft.java12.cenima_ticket.film.entity.Phim;
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 
@@ -27,9 +28,7 @@ public class Ve extends BaseEntity {
 	@Column(name="phim_id")
 	private Long phimId;
 	
-	@ManyToOne(optional= false)
-	@JoinColumn(name="phim_id", insertable = false, updatable = false)
-	private Phim thuocPhim;
+
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
 	private int idNguoiDung;
 	@ManyToOne
@@ -40,5 +39,5 @@ public class Ve extends BaseEntity {
 	private Ghe ghe;
 	
 	@OneToOne(mappedBy = "ve", fetch = FetchType.LAZY)
-	private ThongTinDatVe thongTinDatVe;
+	private LichChieu suatChieu;
 }

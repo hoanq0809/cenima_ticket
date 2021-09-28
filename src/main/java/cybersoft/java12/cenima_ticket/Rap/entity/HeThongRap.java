@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 
 @Entity
-@Table(name="cinema_hethongrap")
+@Table(name="eticket_hethongrap")
 public class HeThongRap extends BaseEntity {
 	@NotNull
 	@Column(unique = true)

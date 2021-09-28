@@ -17,7 +17,7 @@ import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 
 @Entity
-@Table(name="cinema_rap")
+@Table(name="eticket_rap")
 public class Rap extends BaseEntity {
 	private int soRap;
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)

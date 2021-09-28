@@ -47,8 +47,7 @@ public class Phim extends BaseEntity {
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<LichChieu> showTimes = new HashSet<>();
-	@OneToMany(mappedBy ="thuocPhim" )
-	Set<Ve> lstVe=new HashSet<>();
+		
 	@ManyToMany(mappedBy = "lstPhim",fetch = FetchType.LAZY)
 	private Set<CumRap> rapChieu=new HashSet<>();
 	public String getTenPhim() {
