@@ -1,6 +1,5 @@
 package cybersoft.java12.cenima_ticket.ve.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,11 +7,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
-import cybersoft.java12.cenima_ticket.Rap.entity.Ghe;
+import cybersoft.java12.cenima_ticket.QuanLyRap.entity.Ghe;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
-import cybersoft.java12.cenima_ticket.film.entity.Phim;
+import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 
 @Entity
@@ -27,11 +25,12 @@ public class Ve extends BaseEntity {
 	@Column(name="phim_id")
 	private Long phimId;
 	
-	@ManyToOne(optional= false)
-	@JoinColumn(name="phim_id", insertable = false, updatable = false)
-	private Phim thuocPhim;
+	@Column(name = "lichchieu_id", insertable = false, updatable = false)
+	private int lichChieuId;
+	
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
 	private int idNguoiDung;
+	
 	@ManyToOne
 	@JoinColumn(name = "IdNguoiDung")
 	private NguoiDung nguoiDung;
@@ -39,5 +38,8 @@ public class Ve extends BaseEntity {
 	@OneToOne(mappedBy = "ve",fetch = FetchType.LAZY)
 	private Ghe ghe;
 	
+	@ManyToOne
+	@JoinColumn(name = "lichchieu_id")
+	private LichChieu lichChieu;
 	
 }
