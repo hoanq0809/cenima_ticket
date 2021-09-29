@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
-import cybersoft.java12.cenima_ticket.ve.entity.ThongTinDatVe;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
@@ -50,6 +49,4 @@ public class NguoiDung extends BaseEntity {
 	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
 	private Set<Ve> ve;
 	
-	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
-	private Set<ThongTinDatVe> thongTinDatVe = new HashSet<ThongTinDatVe>();
 }
