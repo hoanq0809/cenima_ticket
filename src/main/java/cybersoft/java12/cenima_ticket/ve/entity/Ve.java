@@ -39,6 +39,5 @@ public class Ve extends BaseEntity {
 	@OneToOne(mappedBy = "ve",fetch = FetchType.LAZY)
 	private Ghe ghe;
 	
-	@OneToOne(mappedBy = "ve", fetch = FetchType.LAZY)
-	private ThongTinDatVe thongTinDatVe;
+	
 }
