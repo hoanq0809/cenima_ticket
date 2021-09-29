@@ -1,4 +1,4 @@
-package cybersoft.java12.cenima_ticket.Rap.entity;
+package cybersoft.java12.cenima_ticket.QuanLyRap.entity;
 
 import java.util.HashSet;
 import java.util.Set;

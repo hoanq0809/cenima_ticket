@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -48,7 +47,7 @@ public class NguoiDung extends BaseEntity {
 	private String loaiNguoiDung;
 	
 	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
-	private Set<Ve> ve;
+	private Set<Ve> ve = new HashSet<>();
 	
 	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
 	private Set<ThongTinDatVe> thongTinDatVe = new HashSet<ThongTinDatVe>();

@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import cybersoft.java12.cenima_ticket.Rap.entity.Ghe;
+import cybersoft.java12.cenima_ticket.QuanLyRap.entity.Ghe;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 
