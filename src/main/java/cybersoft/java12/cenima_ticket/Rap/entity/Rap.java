@@ -23,9 +23,9 @@ public class Rap extends BaseEntity {
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name="thuocCumRap",nullable=false)
 	private CumRap thuocCumRap;
-	@NotNull
-	@Column(unique = true)
-	private String suatChieu;
+//	@NotNull
+//	@Column(unique = true)
+//	private String suatChieu;
 //	lstGhe
 	@OneToMany(mappedBy ="thuocRap", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	Set<Ghe> lstGhe=new HashSet<>();
@@ -46,11 +46,5 @@ public class Rap extends BaseEntity {
 	public void setThuocCumRap(CumRap thuocCumRap) {
 		this.thuocCumRap = thuocCumRap;
 	}
-	public String getSuatChieu() {
-		return suatChieu;
-	}
-	public void setSuatChieu(String suatChieu) {
-		this.suatChieu = suatChieu;
-	}
-	
+
 }

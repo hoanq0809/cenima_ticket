@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.Rap.entity.Ghe;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 import cybersoft.java12.cenima_ticket.film.entity.Phim;
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 
@@ -26,7 +27,9 @@ public class Ve extends BaseEntity {
 	
 	@Column(name="phim_id")
 	private Long phimId;
-	
+	@ManyToOne(fetch = FetchType.LAZY,optional = false)
+	@JoinColumn(name="ma_lich_chieu",nullable = false,referencedColumnName = "id")
+	private LichChieu maLichChieu;
 	@ManyToOne(optional= false)
 	@JoinColumn(name="phim_id", insertable = false, updatable = false)
 	private Phim thuocPhim;
@@ -41,4 +44,77 @@ public class Ve extends BaseEntity {
 	
 	@OneToOne(mappedBy = "ve", fetch = FetchType.LAZY)
 	private ThongTinDatVe thongTinDatVe;
+
+	public int getGiaVe() {
+		return giaVe;
+	}
+
+	public void setGiaVe(int giaVe) {
+		this.giaVe = giaVe;
+	}
+
+	public String getSoGhe() {
+		return soGhe;
+	}
+
+	public void setSoGhe(String soGhe) {
+		this.soGhe = soGhe;
+	}
+
+	public Long getPhimId() {
+		return phimId;
+	}
+
+	public void setPhimId(Long phimId) {
+		this.phimId = phimId;
+	}
+
+	public LichChieu getMaLichChieu() {
+		return maLichChieu;
+	}
+
+	public void setMaLichChieu(LichChieu maLichChieu) {
+		this.maLichChieu = maLichChieu;
+	}
+
+	public Phim getThuocPhim() {
+		return thuocPhim;
+	}
+
+	public void setThuocPhim(Phim thuocPhim) {
+		this.thuocPhim = thuocPhim;
+	}
+
+	public int getIdNguoiDung() {
+		return idNguoiDung;
+	}
+
+	public void setIdNguoiDung(int idNguoiDung) {
+		this.idNguoiDung = idNguoiDung;
+	}
+
+	public NguoiDung getNguoiDung() {
+		return nguoiDung;
+	}
+
+	public void setNguoiDung(NguoiDung nguoiDung) {
+		this.nguoiDung = nguoiDung;
+	}
+
+	public Ghe getGhe() {
+		return ghe;
+	}
+
+	public void setGhe(Ghe ghe) {
+		this.ghe = ghe;
+	}
+
+	public ThongTinDatVe getThongTinDatVe() {
+		return thongTinDatVe;
+	}
+
+	public void setThongTinDatVe(ThongTinDatVe thongTinDatVe) {
+		this.thongTinDatVe = thongTinDatVe;
+	}
+	
 }

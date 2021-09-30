@@ -42,6 +42,5 @@ public class ThongTinDatVe extends BaseEntity {
 	@JoinColumn(name = "ve_id", referencedColumnName = "id" )
 	private Ve ve;
 	
-	@OneToMany(mappedBy = "thongTinDatVe", fetch = FetchType.LAZY)
-	private Set<Ghe> ghe = new HashSet<Ghe>();
+
 }

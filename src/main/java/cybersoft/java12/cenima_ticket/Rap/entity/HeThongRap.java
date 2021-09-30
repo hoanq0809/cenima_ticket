@@ -22,7 +22,7 @@ public class HeThongRap extends BaseEntity {
 	private String name;
 	@NotNull
 	private String linkImage;
-	@OneToMany(mappedBy = "tenCumRap",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "id",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
 	private Set<CumRap> cumRap=new HashSet<>();
 	public String getName() {
 		return name;

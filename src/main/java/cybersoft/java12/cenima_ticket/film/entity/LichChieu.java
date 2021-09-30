@@ -2,19 +2,25 @@ package cybersoft.java12.cenima_ticket.film.entity;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.Rap.entity.Rap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
-@Table(name="eticket_suat_chieu")
+@Table(name="eticket_lich_chieu")
 public class LichChieu extends BaseEntity {
 	
 	@Column(name = "gio_chieu")
@@ -36,7 +42,8 @@ public class LichChieu extends BaseEntity {
 	@ManyToOne(optional = false)
 	@JoinColumn(name="rap_id", insertable = false, updatable = false)
 	private Rap rap;
-	
+	@OneToMany(mappedBy = "id",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	private Set<Ve> lstVe=new HashSet<>();
 	public LocalDateTime getGioChieu() {
 		return gioChieu;
 	}
