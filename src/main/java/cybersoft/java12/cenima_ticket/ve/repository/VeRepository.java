@@ -12,8 +12,8 @@ import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 public interface VeRepository extends JpaRepository<Ve,Long>  {
 //	FROM Ve a LEFT JOIN LichChieu b LEFT JOIN Phim c WHERE b.id = ?1
 //	SELECT p.tenPhim,v.soGhe,v.giaVe  FROM  Ve v , Phim p WHERE v.maLichChieu.id=?1 and p.id=v.thuocPhim.id 
-	@Query("SELECT p.tenPhim,v.soGhe,v.giaVe  FROM  Ve v , Phim p WHERE v.maLichChieu.id=?1 and p.id=v.thuocPhim.id ")
-	List<LayDanhSachPhongVeDto> findAllVeByMaLichChieu( Long maLichChieu);
+	@Query("SELECT v FROM Ve v  WHERE v.maLichChieu.id=?1")
+	List<LayDanhSachPhongVeDto> findAllVeByMaLichChieu(Long maLichChieu);
 	
 	
 }

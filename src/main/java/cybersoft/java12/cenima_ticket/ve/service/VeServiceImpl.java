@@ -25,7 +25,7 @@ public class VeServiceImpl implements VeService {
 		
 		return repository.findAllVeByMaLichChieu( maLichChieu);
 		
-		
+			
 	}
 		
 }

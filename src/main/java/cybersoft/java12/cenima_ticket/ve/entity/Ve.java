@@ -20,7 +20,7 @@ import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 @Table(name = "eticket_ve")
 public class Ve extends BaseEntity {
 	@Column(name = "giaVe")
-	private int giaVe;
+	private Integer giaVe;
 	
 	@Column(name = "soGhe")
 	private String soGhe;
@@ -34,9 +34,9 @@ public class Ve extends BaseEntity {
 	@JoinColumn(name="phim_id", insertable = false, updatable = false)
 	private Phim thuocPhim;
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
-	private int idNguoiDung;
+	private Integer idNguoiDung;
 	@ManyToOne
-	@JoinColumn(name = "IdNguoiDung")
+	@JoinColumn(name = "IdNguoiDung",nullable = true)
 	private NguoiDung nguoiDung;
 	
 	@OneToOne(mappedBy = "ve",fetch = FetchType.LAZY)
@@ -85,7 +85,7 @@ public class Ve extends BaseEntity {
 		this.thuocPhim = thuocPhim;
 	}
 
-	public int getIdNguoiDung() {
+	public Integer getIdNguoiDung() {
 		return idNguoiDung;
 	}
 

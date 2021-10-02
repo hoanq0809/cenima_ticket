@@ -37,7 +37,8 @@ public class VeController {
 		
 		
 		List<LayDanhSachPhongVeDto> lstVe= service.layDanhSachVe(maLichChieu);
-		
+		if(lstVe.isEmpty())
+			return ResponseHandler.getResponse("mã lịch chiếu không tồn tại", HttpStatus.BAD_REQUEST);
 		
 		return ResponseHandler.getResponse(lstVe, HttpStatus.OK);
 	}
