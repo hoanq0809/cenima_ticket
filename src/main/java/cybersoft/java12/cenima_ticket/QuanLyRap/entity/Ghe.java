@@ -21,6 +21,21 @@ public class Ghe  extends BaseEntity{
 	private int soGhe;
 	@NotNull
 	private String tenGhe;
+	
+
+	@NotNull
+	private Boolean daDat=false;
+	@Column(name="rap_id")
+	private long rapID;
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	
+	@JoinColumn(name="rap_id",insertable = false,updatable = false)
+	private Rap thuocRap;
+		
+	@OneToOne
+	@JoinColumn(name = "idVe")
+	private Ve ve;
+	
 	public String getTenGhe() {
 		return tenGhe;
 	}
@@ -53,18 +68,6 @@ public class Ghe  extends BaseEntity{
 	}
 
 	
-	@NotNull
-	private Boolean daDat=false;
-	@Column(name="rap_id")
-	private long rapID;
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	
-	@JoinColumn(name="rap_id",insertable = false,updatable = false)
-	private Rap thuocRap;
-		
-	@OneToOne
-	@JoinColumn(name = "idVe")
-	private Ve ve;
 	
 	public String getLoaiGhe() {
 		return loaiGhe;

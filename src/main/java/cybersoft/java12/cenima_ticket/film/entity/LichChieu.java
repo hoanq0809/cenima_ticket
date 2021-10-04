@@ -41,10 +41,12 @@ public class LichChieu extends BaseEntity {
 	private int rapId;
 	
 	@ManyToOne(optional = false)
-	@JoinColumn(name="rap_id", insertable = false, updatable = false)
+	@JoinColumn(name="rap_id" , insertable=false, updatable=false)
 	private Rap rap;
-	@OneToMany(mappedBy = "id",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	
+	@OneToMany(mappedBy = "maLichChieu",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private Set<Ve> lstVe=new HashSet<>();
+	
 	public LocalDateTime getGioChieu() {
 		return gioChieu;
 	}

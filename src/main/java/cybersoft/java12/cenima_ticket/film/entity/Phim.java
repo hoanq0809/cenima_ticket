@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import cybersoft.java12.cenima_ticket.QuanLyRap.entity.CumRap;
