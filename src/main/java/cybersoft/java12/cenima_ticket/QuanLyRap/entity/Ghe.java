@@ -1,6 +1,7 @@
 package cybersoft.java12.cenima_ticket.QuanLyRap.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -18,8 +19,47 @@ public class Ghe  extends BaseEntity{
 	private String loaiGhe;
 	@NotNull
 	private int soGhe;
+	@NotNull
+	private String tenGhe;
+	public String getTenGhe() {
+		return tenGhe;
+	}
+	public void setTenGhe(String tenGhe) {
+		this.tenGhe = tenGhe;
+	}
+	public Boolean getDaDat() {
+		return daDat;
+	}
+	public void setDaDat(Boolean daDat) {
+		this.daDat = daDat;
+	}
+	public long getRapID() {
+		return rapID;
+	}
+	public void setRapID(long rapID) {
+		this.rapID = rapID;
+	}
+	public Rap getThuocRap() {
+		return thuocRap;
+	}
+	public void setThuocRap(Rap thuocRap) {
+		this.thuocRap = thuocRap;
+	}
+	public Ve getVe() {
+		return ve;
+	}
+	public void setVe(Ve ve) {
+		this.ve = ve;
+	}
+
+	
+	@NotNull
+	private Boolean daDat=false;
+	@Column(name="rap_id")
+	private long rapID;
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name="thuocRap")
+	
+	@JoinColumn(name="rap_id",insertable = false,updatable = false)
 	private Rap thuocRap;
 		
 	@OneToOne
