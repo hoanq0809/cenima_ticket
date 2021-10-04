@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import cybersoft.java12.cenima_ticket.Rap.entity.Rap;
+import cybersoft.java12.cenima_ticket.QuanLyRap.entity.Rap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
@@ -39,6 +39,7 @@ public class LichChieu extends BaseEntity {
 	
 	@Column(name="rap_id")
 	private int rapId;
+	
 	@ManyToOne(optional = false)
 	@JoinColumn(name="rap_id", insertable = false, updatable = false)
 	private Rap rap;

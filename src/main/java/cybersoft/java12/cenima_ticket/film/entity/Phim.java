@@ -9,17 +9,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import cybersoft.java12.cenima_ticket.Rap.entity.CumRap;
+import cybersoft.java12.cenima_ticket.QuanLyRap.entity.CumRap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
-import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
 @Table(name = "eticket_phim")
@@ -47,8 +44,7 @@ public class Phim extends BaseEntity {
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<LichChieu> showTimes = new HashSet<>();
-	@OneToMany(mappedBy ="thuocPhim" )
-	Set<Ve> lstVe=new HashSet<>();
+		
 	@ManyToMany(mappedBy = "lstPhim",fetch = FetchType.LAZY)
 	private Set<CumRap> rapChieu=new HashSet<>();
 	public String getTenPhim() {
