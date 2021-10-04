@@ -34,11 +34,12 @@ public class Phim extends BaseEntity {
 	@Column(name="mo_ta")
 	private String moTa;
 	@Column(name="ngay_khoi_chieu")
-//	@NotNull
+	@NotNull
 	private Date ngayKhoiChieu;
 	@Column(name="the_loai")
-//	@NotNull
+	@NotNull
 	private String theLoai;
+	
 	
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
