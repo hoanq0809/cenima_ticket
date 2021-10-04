@@ -1,6 +1,5 @@
 package cybersoft.java12.cenima_ticket.ve.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,9 +7,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
-import cybersoft.java12.cenima_ticket.Rap.entity.Ghe;
+import cybersoft.java12.cenima_ticket.QuanLyRap.entity.Ghe;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 import cybersoft.java12.cenima_ticket.film.entity.Phim;
@@ -35,6 +33,14 @@ public class Ve extends BaseEntity {
 	private Phim thuocPhim;
 	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
 	private Integer idNguoiDung;
+	
+	@Column(name = "lichchieu_id", insertable = false, updatable = false)
+	private int lichChieuId;
+	
+	@ManyToOne
+	@JoinColumn(name = "lichchieu_id")
+	private LichChieu lichChieu;
+
 	@ManyToOne
 	@JoinColumn(name = "IdNguoiDung",nullable = true)
 	private NguoiDung nguoiDung;
@@ -116,5 +122,6 @@ public class Ve extends BaseEntity {
 	public void setThongTinDatVe(ThongTinDatVe thongTinDatVe) {
 		this.thongTinDatVe = thongTinDatVe;
 	}
+	
 	
 }

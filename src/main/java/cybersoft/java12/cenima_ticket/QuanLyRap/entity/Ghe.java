@@ -1,4 +1,4 @@
-package cybersoft.java12.cenima_ticket.Rap.entity;
+package cybersoft.java12.cenima_ticket.QuanLyRap.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,10 +11,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
-import cybersoft.java12.cenima_ticket.ve.entity.ThongTinDatVe;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 @Entity
-@Table(name="cinema_ghe")
+@Table(name="eticket_ghe")
 public class Ghe  extends BaseEntity{
 	@NotNull
 	private String loaiGhe;
@@ -66,8 +65,6 @@ public class Ghe  extends BaseEntity{
 	@OneToOne
 	@JoinColumn(name = "idVe")
 	private Ve ve;
-	
-	
 	
 	public String getLoaiGhe() {
 		return loaiGhe;
