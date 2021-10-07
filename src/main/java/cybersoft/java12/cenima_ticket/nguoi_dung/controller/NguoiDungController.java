@@ -30,6 +30,6 @@ public class NguoiDungController {
 		NguoiDung user= service.createUser(dto);
 		
 		
-		return null;
+		return ResponseHandler.getResponse("success", HttpStatus.OK);
 	}
 }

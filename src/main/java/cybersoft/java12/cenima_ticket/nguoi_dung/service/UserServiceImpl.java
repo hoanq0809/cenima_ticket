@@ -29,5 +29,16 @@ public class UserServiceImpl implements UserService {
 		user.setLoaiNguoiDung("KhachHang");
 	   return repository.save(user);
 	}
-
+	@Override
+	public boolean isTakenUsername(String username) {
+		// TODO Auto-generated method stub
+		return repository.countByTaiKhoan(username) >= 1;
+	}
+	@Override
+	public boolean isTakenEmail(String email) {
+		// TODO Auto-generated method stub
+		return repository.countByEmail(email.toLowerCase())>=1;
+	}
+	
+	
 }

@@ -7,4 +7,8 @@ import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 @Repository
 public interface UserRepository extends JpaRepository<NguoiDung, Long> {
 
+	int countByTaiKhoan(String username);
+
+	int countByEmail(String lowerCase);
+
 }

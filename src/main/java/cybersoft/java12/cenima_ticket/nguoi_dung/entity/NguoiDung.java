@@ -20,7 +20,7 @@ import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 @Table(name = "eticket_nguoi_dung")
 public class NguoiDung extends BaseEntity {
 	@NotNull
-	@Column(name = "hoTen",unique = true)
+	@Column(name = "hoTen")
 	@Size(min = 3, max = 50)
 	private String hoTen;
 	@NotNull

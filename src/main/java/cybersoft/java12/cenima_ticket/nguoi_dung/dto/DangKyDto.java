@@ -1,13 +1,20 @@
 package cybersoft.java12.cenima_ticket.nguoi_dung.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+
+import cybersoft.java12.cenima_ticket.nguoi_dung.validation.anotation.UniqueEmail;
+import cybersoft.java12.cenima_ticket.nguoi_dung.validation.anotation.UniqueUsername;
 
 public class DangKyDto {
 	@NotBlank(message = "{user.username.not-blank}")
+	@UniqueUsername(message = "{user.username.not-unique}")
 	private String taiKhoan;
 	@NotBlank(message ="{user.password.not-blank}")
 	private String matKhau;
 	@NotBlank(message ="{user.email.not-blank}")
+	@UniqueEmail
+	@Email(message = "{user.email.not-valid}")
 	private String email;
 	private String soDt;
 	@NotBlank(message ="{user.maLoaiNguoiDung.not-blank}")

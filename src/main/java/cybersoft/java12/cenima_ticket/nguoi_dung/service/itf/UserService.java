@@ -9,6 +9,10 @@ public interface UserService {
 
 	NguoiDung createUser( DangKyDto dto);
 
+	boolean isTakenUsername(String username);
+
+	boolean isTakenEmail(String email);
+
 	
 
 }
