@@ -17,12 +17,12 @@ public class BaseEntity {
 	protected Long id;
 	
 	@Version
-	protected int version;
+	protected Integer version=1;
 	
 	protected String createdBy;
 	protected LocalDateTime createdAt;
 	protected String updatedBy;
-	protected LocalDateTime updatedAt;
+	protected LocalDateTime updatedAt;	
 	
 	
 	/* getters/setters */
