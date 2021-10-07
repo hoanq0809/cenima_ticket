@@ -30,6 +30,10 @@ public class NguoiDung extends BaseEntity {
 	private String email;
 	
 	@NotNull
+	@Column(name="tai_khoan")
+	private String taiKhoan;
+	
+	@NotNull
 	@Column(name = "matKhau")
 	private String matKhau;
 	
@@ -47,5 +51,78 @@ public class NguoiDung extends BaseEntity {
 	
 	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
 	private Set<Ve> ve = new HashSet<>();
+
+	public String getHoTen() {
+		return hoTen;
+	}
+
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTaiKhoan() {
+		return taiKhoan;
+	}
+
+	public void setTaiKhoan(String taiKhoan) {
+		this.taiKhoan = taiKhoan;
+	}
+
+	public String getMatKhau() {
+		return matKhau;
+	}
+
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
+	}
+
+	public String getSoDienThoai() {
+		return soDienThoai;
+	}
+
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public Date getNgaySinh() {
+		return ngaySinh;
+	}
+
+	public void setNgaySinh(Date ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+
+	public String getLoaiNguoiDung() {
+		return loaiNguoiDung;
+	}
+
+	public void setLoaiNguoiDung(String loaiNguoiDung) {
+		this.loaiNguoiDung = loaiNguoiDung;
+	}
+
+	public Set<Ve> getVe() {
+		return ve;
+	}
+
+	public void setVe(Set<Ve> ve) {
+		this.ve = ve;
+	}
+	
 	
 }

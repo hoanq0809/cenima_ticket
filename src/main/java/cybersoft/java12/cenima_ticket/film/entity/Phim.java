@@ -40,7 +40,9 @@ public class Phim extends BaseEntity {
 	@Column(name="the_loai")
 	@NotNull
 	private String theLoai;
-	
+	@Column(name="thoi_luong_phim")
+//	@NotNull
+	private int thoiLuongPhim;
 	
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
