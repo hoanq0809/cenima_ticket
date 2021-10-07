@@ -20,9 +20,6 @@ public class Ve extends BaseEntity {
 	@Column(name = "giaVe")
 	private Integer giaVe;
 	
-	@Column(name = "soGhe")
-	private String soGhe;
-	
 	@Column(name="phim_id")
 	private Long phimId;
 	@ManyToOne(fetch = FetchType.LAZY,optional = false)
@@ -45,7 +42,8 @@ public class Ve extends BaseEntity {
 	@JoinColumn(name = "IdNguoiDung",nullable = true)
 	private NguoiDung nguoiDung;
 	
-	@OneToOne(mappedBy = "ve",fetch = FetchType.LAZY)
+	@OneToOne
+	@JoinColumn(name ="ghe_id", referencedColumnName = "id")
 	private Ghe ghe;
 
 	public int getGiaVe() {
@@ -54,14 +52,6 @@ public class Ve extends BaseEntity {
 
 	public void setGiaVe(int giaVe) {
 		this.giaVe = giaVe;
-	}
-
-	public String getSoGhe() {
-		return soGhe;
-	}
-
-	public void setSoGhe(String soGhe) {
-		this.soGhe = soGhe;
 	}
 
 	public Long getPhimId() {
