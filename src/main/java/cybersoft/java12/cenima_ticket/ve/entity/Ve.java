@@ -47,9 +47,6 @@ public class Ve extends BaseEntity {
 	
 	@OneToOne(mappedBy = "ve",fetch = FetchType.LAZY)
 	private Ghe ghe;
-	
-	@OneToOne(mappedBy = "ve", fetch = FetchType.LAZY)
-	private ThongTinDatVe thongTinDatVe;
 
 	public int getGiaVe() {
 		return giaVe;
@@ -113,14 +110,6 @@ public class Ve extends BaseEntity {
 
 	public void setGhe(Ghe ghe) {
 		this.ghe = ghe;
-	}
-
-	public ThongTinDatVe getThongTinDatVe() {
-		return thongTinDatVe;
-	}
-
-	public void setThongTinDatVe(ThongTinDatVe thongTinDatVe) {
-		this.thongTinDatVe = thongTinDatVe;
 	}
 	
 	
