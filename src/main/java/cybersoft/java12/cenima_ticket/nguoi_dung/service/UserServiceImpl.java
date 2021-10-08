@@ -2,6 +2,7 @@ package cybersoft.java12.cenima_ticket.nguoi_dung.service;
 
 import javax.validation.Valid;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.DangKyDto;
@@ -11,9 +12,11 @@ import cybersoft.java12.cenima_ticket.nguoi_dung.service.itf.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 	private UserRepository repository;
-	public UserServiceImpl(UserRepository userRepository) {	
+	private PasswordEncoder encoder;
+	public UserServiceImpl(UserRepository userRepository,PasswordEncoder passwordEncoder) {
 	// TODO Auto-generated constructor stub
 		repository=userRepository;
+		encoder=passwordEncoder;
 	}
 	@Override
 	public NguoiDung createUser( DangKyDto dto) {
@@ -24,7 +27,7 @@ public class UserServiceImpl implements UserService {
 		user.setTaiKhoan(dto.getTaiKhoan());
 		user.setHoTen(dto.getHoTen());
 		user.setEmail(dto.getEmail());
-		user.setMatKhau(dto.getMatKhau());
+		user.setMatKhau( encoder.encode(dto.getMatKhau()) );
 		user.setSoDienThoai(dto.getSoDt());
 		user.setLoaiNguoiDung("KhachHang");
 	   return repository.save(user);
