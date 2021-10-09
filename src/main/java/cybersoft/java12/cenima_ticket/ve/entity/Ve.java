@@ -32,7 +32,7 @@ public class Ve extends BaseEntity {
 	private Integer idNguoiDung;
 	
 	@Column(name = "lichchieu_id", insertable = false, updatable = false)
-	private int lichChieuId;
+	private Integer lichChieuId;
 	
 	@ManyToOne
 	@JoinColumn(name = "lichchieu_id")
@@ -101,6 +101,4 @@ public class Ve extends BaseEntity {
 	public void setGhe(Ghe ghe) {
 		this.ghe = ghe;
 	}
-	
-	
 }
