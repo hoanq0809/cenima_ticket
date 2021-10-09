@@ -28,9 +28,9 @@ public class Ve extends BaseEntity {
 	@ManyToOne(optional= false)
 	@JoinColumn(name="phim_id", insertable = false, updatable = false)
 	private Phim thuocPhim;
-	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
-	private Integer idNguoiDung;
-	
+//	@Column(name = "IdNguoiDung", insertable = false, updatable = false)
+//	private Integer idNguoiDung;
+//	
 	@Column(name = "lichchieu_id", insertable = false, updatable = false)
 	private Integer lichChieuId;
 	
@@ -39,7 +39,7 @@ public class Ve extends BaseEntity {
 	private LichChieu lichChieu;
 
 	@ManyToOne
-	@JoinColumn(name = "IdNguoiDung",nullable = true)
+	@JoinColumn(name = "id_nguoi_dung", referencedColumnName = "id")
 	private NguoiDung nguoiDung;
 	
 	@OneToOne
@@ -78,14 +78,7 @@ public class Ve extends BaseEntity {
 		this.thuocPhim = thuocPhim;
 	}
 
-	public Integer getIdNguoiDung() {
-		return idNguoiDung;
-	}
-
-	public void setIdNguoiDung(int idNguoiDung) {
-		this.idNguoiDung = idNguoiDung;
-	}
-
+	
 	public NguoiDung getNguoiDung() {
 		return nguoiDung;
 	}

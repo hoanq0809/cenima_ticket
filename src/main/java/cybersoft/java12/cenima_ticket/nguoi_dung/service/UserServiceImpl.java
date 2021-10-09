@@ -1,11 +1,15 @@
 package cybersoft.java12.cenima_ticket.nguoi_dung.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.DangKyDto;
+import cybersoft.java12.cenima_ticket.nguoi_dung.dto.LayThongTinTaiKhoanDto;
+import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThongTinTaiKhoanDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 import cybersoft.java12.cenima_ticket.nguoi_dung.repository.UserRepository;
 import cybersoft.java12.cenima_ticket.nguoi_dung.service.itf.UserService;
@@ -41,6 +45,10 @@ public class UserServiceImpl implements UserService {
 	public boolean isTakenEmail(String email) {
 		// TODO Auto-generated method stub
 		return repository.countByEmail(email.toLowerCase())>=1;
+	}
+	@Override
+	public List<LayThongTinTaiKhoanDto> getThongTinTaiKhoan(ThongTinTaiKhoanDto dto) {
+		return repository.getNguoidungByTaiKhoan(dto.getTaiKhoan());
 	}
 	
 	
