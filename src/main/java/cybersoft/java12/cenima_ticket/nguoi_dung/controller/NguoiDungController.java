@@ -1,5 +1,7 @@
 package cybersoft.java12.cenima_ticket.nguoi_dung.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -12,9 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import cybersoft.java12.cenima_ticket.common.ResponseHandler;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.LayThongTinTaiKhoanDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThongTinTaiKhoanDto;
-import cybersoft.java12.cenima_ticket.nguoi_dung.service.itf.NguoiDungService;
 
-import cybersoft.java12.cenima_ticket.common.ResponseHandler;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.DangKyDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 import cybersoft.java12.cenima_ticket.nguoi_dung.service.itf.UserService;
