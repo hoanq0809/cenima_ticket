@@ -62,8 +62,7 @@ public class Ghe  extends BaseEntity{
 	@JoinColumn(name="rap_id",insertable = false,updatable = false)
 	private Rap thuocRap;
 		
-	@OneToOne
-	@JoinColumn(name = "idVe")
+	@OneToOne(mappedBy = "ghe", fetch = FetchType.LAZY)
 	private Ve ve;
 	
 	public String getLoaiGhe() {

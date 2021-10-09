@@ -24,21 +24,15 @@ public class NguoiDung extends BaseEntity {
 	@Size(min = 3, max = 50)
 	private String hoTen;
 	@NotNull
-	@Column(name="taiKhoan",unique = true)
-	private String taiKhoan;
-	@NotNull
 	@Email
 	@Column(name = "email", unique = true)
 	private String email;
+
+
+	@NotNull
+	@Column(name="tai_khoan")
+	private String taiKhoan;
 	
-	public String getTaiKhoan() {
-		return taiKhoan;
-	}
-
-	public void setTaiKhoan(String taiKhoan) {
-		this.taiKhoan = taiKhoan;
-	}
-
 	@NotNull
 	@Column(name = "matKhau")
 	private String matKhau;
@@ -51,7 +45,13 @@ public class NguoiDung extends BaseEntity {
 	
 	@Column(name = "ngaySinh")
 	private Date ngaySinh;
+
+	@Column(name = "loaiNguoiDung")
+	private String loaiNguoiDung;
 	
+	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
+	private Set<Ve> ve = new HashSet<>();
+
 	public String getHoTen() {
 		return hoTen;
 	}
@@ -66,6 +66,14 @@ public class NguoiDung extends BaseEntity {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getTaiKhoan() {
+		return taiKhoan;
+	}
+
+	public void setTaiKhoan(String taiKhoan) {
+		this.taiKhoan = taiKhoan;
 	}
 
 	public String getMatKhau() {
@@ -115,11 +123,6 @@ public class NguoiDung extends BaseEntity {
 	public void setVe(Set<Ve> ve) {
 		this.ve = ve;
 	}
-
-	@Column(name = "loaiNguoiDung")
-	private String loaiNguoiDung;
 	
-	@OneToMany(mappedBy = "nguoiDung", fetch = FetchType.LAZY)
-	private Set<Ve> ve = new HashSet<>();
 	
 }
