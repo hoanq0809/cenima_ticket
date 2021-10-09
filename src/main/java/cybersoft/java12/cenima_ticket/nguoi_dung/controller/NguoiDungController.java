@@ -1,7 +1,5 @@
 package cybersoft.java12.cenima_ticket.nguoi_dung.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -16,17 +14,29 @@ import cybersoft.java12.cenima_ticket.nguoi_dung.dto.LayThongTinTaiKhoanDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThongTinTaiKhoanDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.service.itf.NguoiDungService;
 
+import cybersoft.java12.cenima_ticket.common.ResponseHandler;
+import cybersoft.java12.cenima_ticket.nguoi_dung.dto.DangKyDto;
+import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
+import cybersoft.java12.cenima_ticket.nguoi_dung.service.itf.UserService;
+
 @RestController
 @RequestMapping("/api/QuanLyNguoiDung")
 public class NguoiDungController {
-	
-	private NguoiDungService service;
-	
-	
-	public NguoiDungController(NguoiDungService nguoiDungService) {
-		service = nguoiDungService;
+	private UserService service;
+	public NguoiDungController(UserService userService) {
+		// TODO Auto-generated constructor stub
+		service=userService;
 	}
-
+	@PostMapping("/DangKy")
+	public Object dangKy(@Valid @RequestBody DangKyDto dto,BindingResult errs) {
+		if(errs.hasErrors())
+			return ResponseHandler.getResponse(errs, HttpStatus.BAD_REQUEST);
+		
+		NguoiDung user= service.createUser(dto);
+		
+		
+		return ResponseHandler.getResponse("success", HttpStatus.OK);
+	}
 
 	@PostMapping("/ThongTinTaiKhoan")
 	public Object LayThonTinTaiKhoan( @Valid @RequestBody ThongTinTaiKhoanDto dto, BindingResult errors ) {
