@@ -19,6 +19,8 @@ import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 @Entity
 @Table(name="eticket_rap")
 public class Rap extends BaseEntity {
+	@Column(name="ten_rap")
+	private String tenRap;
 	private int soRap;
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name="thuocCumRap",nullable=false)
@@ -45,6 +47,12 @@ public class Rap extends BaseEntity {
 	}
 	public void setThuocCumRap(CumRap thuocCumRap) {
 		this.thuocCumRap = thuocCumRap;
+	}
+	public String getTenRap() {
+		return tenRap;
+	}
+	public void setTenRap(String tenRap) {
+		this.tenRap = tenRap;
 	}
 
 }
