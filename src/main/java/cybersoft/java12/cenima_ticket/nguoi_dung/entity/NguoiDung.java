@@ -7,6 +7,9 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -18,6 +21,17 @@ import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
 @Table(name = "eticket_nguoi_dung")
+@NamedEntityGraph(
+		name = "graph.user.ve", 
+		attributeNodes = @NamedAttributeNode(value = "ve",subgraph = "subgraph.ve"),
+		subgraphs = {
+				@NamedSubgraph(name = "subgraph.ve",
+						attributeNodes = @NamedAttributeNode(value = "maLichChieu", subgraph = "subgraph.lichchieu")),
+				@NamedSubgraph(name ="subgraph.lichchieu",
+						attributeNodes =  @NamedAttributeNode(value="films")
+						)
+		})
+
 public class NguoiDung extends BaseEntity {
 	@NotNull
 	@Column(name = "hoTen")

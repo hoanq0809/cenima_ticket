@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import cybersoft.java12.cenima_ticket.QuanLyRap.entity.Rap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.ve.entity.Ve;
@@ -43,8 +45,11 @@ public class LichChieu extends BaseEntity {
 	@ManyToOne(optional = false)
 	@JoinColumn(name="rap_id", insertable = false, updatable = false)
 	private Rap rap;
-	@OneToMany(mappedBy = "id",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "maLichChieu",fetch = FetchType.LAZY)
 	private Set<Ve> lstVe=new HashSet<>();
+	
 	public LocalDateTime getGioChieu() {
 		return gioChieu;
 	}
