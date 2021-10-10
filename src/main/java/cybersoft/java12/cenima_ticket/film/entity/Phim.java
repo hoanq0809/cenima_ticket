@@ -17,6 +17,7 @@ import javax.validation.constraints.Size;
 
 import cybersoft.java12.cenima_ticket.QuanLyRap.entity.CumRap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
 @Table(name = "eticket_phim")
@@ -53,6 +54,9 @@ public class Phim extends BaseEntity {
 	public String getTenPhim() {
 		return tenPhim;
 	}
+	
+	@OneToMany(mappedBy = "thuocPhim", fetch = FetchType.LAZY)
+	private Set<Ve> ve = new HashSet<>(); 
 
 	public void setTenPhim(String tenPhim) {
 		this.tenPhim = tenPhim;
