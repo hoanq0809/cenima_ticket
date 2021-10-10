@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import cybersoft.java12.cenima_ticket.nguoi_dung.dto.CapNhatThongTinNguoiDungDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.DangKyDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.LayThongTinTaiKhoanDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThemNguoiDungDto;
@@ -21,6 +22,8 @@ public interface UserService {
 	List<LayThongTinTaiKhoanDto> getThongTinTaiKhoan( ThongTinTaiKhoanDto dto);
 
 	NguoiDung themNguoiDung(ThemNguoiDungDto dto);
+
+	NguoiDung updateNguoidung(CapNhatThongTinNguoiDungDto dto, Long id);
 
 	
 

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ import cybersoft.java12.cenima_ticket.common.ResponseHandler;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.LayThongTinTaiKhoanDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThemNguoiDungDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThongTinTaiKhoanDto;
-
+import cybersoft.java12.cenima_ticket.nguoi_dung.dto.CapNhatThongTinNguoiDungDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.DangKyDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 import cybersoft.java12.cenima_ticket.nguoi_dung.service.itf.UserService;
@@ -54,5 +55,14 @@ public class NguoiDungController {
 			return ResponseHandler.getResponse(errors, HttpStatus.BAD_REQUEST);
 		NguoiDung nguoiDung = service.themNguoiDung(dto);
 		return ResponseHandler.getResponse(nguoiDung, HttpStatus.OK);
+	}
+	
+	@PutMapping("CapNhapThongTinNguoiDung")
+	public Object CapNhapThongTinNguoiDung(@Valid @RequestBody CapNhatThongTinNguoiDungDto dto,
+			BindingResult errors) {
+		if(errors.hasErrors())
+			return ResponseHandler.getResponse(errors, HttpStatus.BAD_REQUEST);
+		NguoiDung updateNguoiDung = service.updateNguoidung(dto, dto.getId());
+		return ResponseHandler.getResponse(updateNguoiDung, HttpStatus.OK);
 	}
 }
