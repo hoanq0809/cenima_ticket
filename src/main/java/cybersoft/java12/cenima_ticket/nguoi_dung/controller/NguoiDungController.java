@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Repository;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cybersoft.java12.cenima_ticket.common.ResponseHandler;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.LayThongTinTaiKhoanDto;
+import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThemNguoiDungDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThongTinTaiKhoanDto;
 
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.DangKyDto;
@@ -44,5 +46,13 @@ public class NguoiDungController {
 			return ResponseHandler.getResponse(errors, HttpStatus.BAD_REQUEST);
 		List<LayThongTinTaiKhoanDto> taiKhoan =  service.getThongTinTaiKhoan(dto);
 		return ResponseHandler.getResponse(taiKhoan, HttpStatus.OK);
+	}
+	
+	@PostMapping("/ThemNguoiDung")
+	public Object ThemNguoiDung(@Valid @RequestBody ThemNguoiDungDto dto, BindingResult errors) {
+		if(errors.hasErrors())
+			return ResponseHandler.getResponse(errors, HttpStatus.BAD_REQUEST);
+		NguoiDung nguoiDung = service.themNguoiDung(dto);
+		return ResponseHandler.getResponse(nguoiDung, HttpStatus.OK);
 	}
 }
