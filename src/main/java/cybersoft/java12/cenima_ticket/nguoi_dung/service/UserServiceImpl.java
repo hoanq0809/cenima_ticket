@@ -2,13 +2,12 @@ package cybersoft.java12.cenima_ticket.nguoi_dung.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.DangKyDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.LayThongTinTaiKhoanDto;
+import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThemNguoiDungDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.dto.ThongTinTaiKhoanDto;
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 import cybersoft.java12.cenima_ticket.nguoi_dung.repository.UserRepository;
@@ -49,6 +48,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<LayThongTinTaiKhoanDto> getThongTinTaiKhoan(ThongTinTaiKhoanDto dto) {
 		return repository.getNguoidungByTaiKhoan(dto.getTaiKhoan());
+	}
+	@Override
+	public NguoiDung themNguoiDung(ThemNguoiDungDto dto) {
+		NguoiDung addNguoiDung = new NguoiDung();
+		addNguoiDung.setTaiKhoan(dto.getTaiKhoan());
+		addNguoiDung.setHoTen(dto.getHoTen());
+		addNguoiDung.setEmail(dto.getEmail());
+		addNguoiDung.setMatKhau( encoder.encode(dto.getMatKhau()) );
+		addNguoiDung.setSoDienThoai(dto.getSoDt());
+		addNguoiDung.setLoaiNguoiDung("KhachHang");
+		return repository.save(addNguoiDung);
 	}
 	
 	
