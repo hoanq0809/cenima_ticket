@@ -74,6 +74,10 @@ public class UserServiceImpl implements UserService {
 		updateNguoiDung.setTaiKhoan(dto.getTaiKhoan());
 		return repository.save(updateNguoiDung);
 	}
+	@Override
+	public void deleteUser(Long userId) {
+		repository.deleteById(userId);
+	}
 	
 	
 }

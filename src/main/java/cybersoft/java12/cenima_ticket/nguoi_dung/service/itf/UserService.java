@@ -25,6 +25,8 @@ public interface UserService {
 
 	NguoiDung updateNguoidung(CapNhatThongTinNguoiDungDto dto, Long id);
 
+	void deleteUser(Long userId);
+
 	
 
 }

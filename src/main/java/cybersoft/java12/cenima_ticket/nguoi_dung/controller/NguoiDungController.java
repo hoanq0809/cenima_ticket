@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,5 +66,11 @@ public class NguoiDungController {
 			return ResponseHandler.getResponse(errors, HttpStatus.BAD_REQUEST);
 		NguoiDung updateNguoiDung = service.updateNguoidung(dto, dto.getId());
 		return ResponseHandler.getResponse(updateNguoiDung, HttpStatus.OK);
+	}
+	
+	@DeleteMapping("XoaNguoiDung/{user-id}")
+	public Object XoaNguoiDung(@PathVariable("user-id") Long userId) {
+		service.deleteUser(userId);
+		return ResponseHandler.getResponse(HttpStatus.OK);
 	}
 }
