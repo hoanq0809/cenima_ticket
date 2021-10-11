@@ -20,10 +20,19 @@ public class HeThongRap extends BaseEntity {
 	@NotNull
 	@Column(unique = true)
 	private String name;
+	
 	@NotNull
-	private String linkImage;
+	private String maHeThong;
+	
+	@NotNull
+	private String biDanh;
+	
+	@NotNull
+	private String linkImageLogo;
+	
 	@OneToMany(mappedBy = "tenCumRap",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
 	private Set<CumRap> cumRap=new HashSet<>();
+	
 	public String getName() {
 		return name;
 	}
@@ -31,11 +40,27 @@ public class HeThongRap extends BaseEntity {
 		this.name = name;
 	}
 	public String getLinkImage() {
-		return linkImage;
+		return linkImageLogo;
 	}
-	public void setLinkImage(String linkImage) {
-		this.linkImage = linkImage;
+	public void setLinkImage(String linkImageLogo) {
+		this.linkImageLogo = linkImageLogo;
 	}
-	
-	
+	public String getMaHeThong() {
+		return maHeThong;
+	}
+	public void setMaHeThong(String maHeThong) {
+		this.maHeThong = maHeThong;
+	}
+	public String getBiDanh() {
+		return biDanh;
+	}
+	public void setBiDanh(String biDanh) {
+		this.biDanh = biDanh;
+	}
+	public Set<CumRap> getCumRap() {
+		return cumRap;
+	}
+	public void setCumRap(Set<CumRap> cumRap) {
+		this.cumRap = cumRap;
+	}		
 }
