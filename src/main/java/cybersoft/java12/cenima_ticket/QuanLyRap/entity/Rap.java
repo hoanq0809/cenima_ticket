@@ -1,4 +1,4 @@
-package cybersoft.java12.cenima_ticket.Rap.entity;
+package cybersoft.java12.cenima_ticket.QuanLyRap.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,15 +17,17 @@ import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 
 @Entity
-@Table(name="cinema_rap")
+@Table(name="eticket_rap")
 public class Rap extends BaseEntity {
+	@Column(name="ten_rap")
+	private String tenRap;
 	private int soRap;
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name="thuocCumRap",nullable=false)
 	private CumRap thuocCumRap;
-	@NotNull
-	@Column(unique = true)
-	private String suatChieu;
+//	@NotNull
+//	@Column(unique = true)
+//	private String suatChieu;
 //	lstGhe
 	@OneToMany(mappedBy ="thuocRap", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	Set<Ghe> lstGhe=new HashSet<>();
@@ -46,11 +48,11 @@ public class Rap extends BaseEntity {
 	public void setThuocCumRap(CumRap thuocCumRap) {
 		this.thuocCumRap = thuocCumRap;
 	}
-	public String getSuatChieu() {
-		return suatChieu;
+	public String getTenRap() {
+		return tenRap;
 	}
-	public void setSuatChieu(String suatChieu) {
-		this.suatChieu = suatChieu;
+	public void setTenRap(String tenRap) {
+		this.tenRap = tenRap;
 	}
-	
+
 }

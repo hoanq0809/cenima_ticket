@@ -1,4 +1,4 @@
-package cybersoft.java12.cenima_ticket.Rap.entity;
+package cybersoft.java12.cenima_ticket.QuanLyRap.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,7 +19,7 @@ import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.film.entity.Phim;
 
 @Entity
-@Table(name= "cinema_cumrap")
+@Table(name= "eticket_cumrap")
 public class CumRap extends BaseEntity {
 	@NotNull
 	@Column(name = "ten_cum_rap")
@@ -33,13 +33,14 @@ public class CumRap extends BaseEntity {
 	 @OneToMany(mappedBy ="soRap",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	 private Set<Rap> lstRap=new HashSet<>();
 	 //	 lst phim theo rap
+	 @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST })
+		@JoinTable(name="eticket_danh_sach_phim",joinColumns = @JoinColumn(name="cum_rap_id"),
+		inverseJoinColumns = @JoinColumn(name="phim_id")
+				)
+		 private Set<Phim> lstPhim=new HashSet<>();
 	 
-	 
-	@ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST })
-	@JoinTable(name="eticket_danh_sach_phim",joinColumns = @JoinColumn(name="cum_rap_id"),
-	inverseJoinColumns = @JoinColumn(name="phim_id")
-			)
-	 private Set<Phim> lstPhim=new HashSet<>();
+	
+	
 
 	public String getTenCumRap() {
 		return tenCumRap;
