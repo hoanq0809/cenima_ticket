@@ -30,6 +30,7 @@ public class PhimServiceImpl implements PhimService {
 		phim.setTrailer(dto.getTrailer());
 		phim.setNgayKhoiChieu(dto.getNgayKhoiChieu());
 		phim.setTheLoai(dto.getTheLoai());
+		phim.setDanhGia(dto.getDanhGia());
 		
 		return repository.save(phim);
 		

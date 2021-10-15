@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class CreatePhimDto {
-	@NotBlank
+	@NotBlank(message =  "{phim.ten.not-null}")
 	@Size(min = 3,max = 50,  message = "{phim.ten.size}")
 	private String tenPhim;
 
@@ -21,6 +21,16 @@ public class CreatePhimDto {
 	private Date ngayKhoiChieu;
 	
 	private String theLoai;
+	
+	private int danhGia;
+	
+	public int getDanhGia() {
+		return danhGia;
+	}
+
+	public void setDanhGia(int danhGia) {
+		this.danhGia = danhGia;
+	}
 
 	public String getTenPhim() {
 		return tenPhim;

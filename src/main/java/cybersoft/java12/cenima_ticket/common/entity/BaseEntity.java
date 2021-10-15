@@ -9,6 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+
+import cybersoft.java12.cenima_ticket.common.util.DateUtils;
+
 @MappedSuperclass
 public class BaseEntity {
 	@Id
@@ -20,8 +29,14 @@ public class BaseEntity {
 	protected Integer version=1;
 	
 	protected String createdBy;
+	@CreatedDate
+	@DateTimeFormat(pattern = DateUtils.DATE_FORMAT)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DateUtils.DATE_FORMAT)
 	protected LocalDateTime createdAt;
 	protected String updatedBy;
+	@LastModifiedDate
+	@DateTimeFormat(pattern = DateUtils.DATE_FORMAT)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DateUtils.DATE_FORMAT)
 	protected LocalDateTime updatedAt;	
 	
 	

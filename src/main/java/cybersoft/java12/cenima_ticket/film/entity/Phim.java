@@ -44,6 +44,8 @@ public class Phim extends BaseEntity {
 	@Column(name="thoi_luong_phim")
 //	@NotNull
 	private int thoiLuongPhim;
+	@Column(name="danh_gia")
+	private int danhGia;
 	
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -116,6 +118,14 @@ public class Phim extends BaseEntity {
 
 	public void setShowTimes(Set<LichChieu> showTimes) {
 		this.showTimes = showTimes;
+	}
+
+	public int getDanhGia() {
+		return danhGia;
+	}
+
+	public void setDanhGia(int danhGia) {
+		this.danhGia = danhGia;
 	}
 	
 	
