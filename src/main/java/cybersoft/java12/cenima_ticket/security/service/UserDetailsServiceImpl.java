@@ -29,6 +29,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return new UserDetailsDto(username, user.get().getMatKhau(), authorities);
 		
 	}
+	private Set<GrantedAuthority> getAuthorities(Set<Group> groups) {
+		Set<GrantedAuthority> authorities = new HashSet<>();
+		
+		for(Group group : groups) {
+			authorities.add(new SimpleGrantedAuthority(group.getName()));
+		}
+		
+		return authorities;
+	}
 	
 
 }
