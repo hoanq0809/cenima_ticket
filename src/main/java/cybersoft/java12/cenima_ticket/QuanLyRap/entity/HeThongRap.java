@@ -30,8 +30,8 @@ public class HeThongRap extends BaseEntity {
 	@NotNull
 	private String linkImageLogo;
 	
-	@OneToMany(mappedBy = "tenCumRap",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
-	private Set<CumRap> cumRap=new HashSet<>();
+	@OneToMany(mappedBy = "heThongRap",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
+	private Set<CumRap> cumRap = new HashSet<>();
 	
 	public String getName() {
 		return name;

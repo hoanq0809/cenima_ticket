@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import cybersoft.java12.cenima_ticket.QuanLyRap.dto.HeThongRapDto;
 import cybersoft.java12.cenima_ticket.QuanLyRap.entity.HeThongRap;
 
-
 @Repository
 public interface HeThongRapRepository extends JpaRepository<HeThongRap, Long> {
 	
