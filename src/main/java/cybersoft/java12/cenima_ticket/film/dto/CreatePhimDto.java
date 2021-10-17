@@ -14,7 +14,6 @@ public class CreatePhimDto {
 	
 	private String trailer;
 	
-	private String hinhAnh;
 	
 	private String moTa;
 	
@@ -46,13 +45,6 @@ public class CreatePhimDto {
 		this.trailer = trailer;
 	}
 
-	public String getHinhAnh() {
-		return hinhAnh;
-	}
-
-	public void setHinhAnh(String hinhAnh) {
-		this.hinhAnh = hinhAnh;
-	}
 
 	public String getMoTa() {
 		return moTa;

@@ -22,7 +22,7 @@ public class PhimServiceImpl implements PhimService {
 	}
 	
 	@Override
-	public Phim themPhim(@Valid CreatePhimDto dto) {
+	public Phim themPhim(@Valid CreatePhimDto dto, String uploadAnh) {
 		Phim phim = new Phim();
 		phim.setTenPhim(dto.getTenPhim());
 		phim.setBiDanh(dto.getBiDanh());
@@ -30,6 +30,7 @@ public class PhimServiceImpl implements PhimService {
 		phim.setTrailer(dto.getTrailer());
 		phim.setNgayKhoiChieu(dto.getNgayKhoiChieu());
 		phim.setTheLoai(dto.getTheLoai());
+		phim.setHinhAnh(uploadAnh);
 		
 		return repository.save(phim);
 		

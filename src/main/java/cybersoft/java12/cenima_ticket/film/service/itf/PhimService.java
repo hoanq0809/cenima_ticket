@@ -11,7 +11,7 @@ import cybersoft.java12.cenima_ticket.film.entity.Phim;
 
 public interface PhimService {
 
-	Phim themPhim(@Valid CreatePhimDto dto);
+	Phim themPhim(@Valid CreatePhimDto dto, String uploadAnh);
 
 	List<PhimDto> findAll();
 
