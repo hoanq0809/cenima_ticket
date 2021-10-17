@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cybersoft.java12.cenima_ticket.QuanLyRap.dto.CreateHeThongRapDto;
 import cybersoft.java12.cenima_ticket.QuanLyRap.dto.HeThongRapDto;
+import cybersoft.java12.cenima_ticket.QuanLyRap.dto.LayCumRapTheoHeThongDto;
 import cybersoft.java12.cenima_ticket.QuanLyRap.entity.HeThongRap;
 import cybersoft.java12.cenima_ticket.QuanLyRap.service.itf.HeThongRapService;
 import cybersoft.java12.cenima_ticket.common.ResponseHandler;
 
 @RestController
-@RequestMapping("/api/QuanLyHeThongRap")
+@RequestMapping("/api/QuanLyRap")
 public class HeThongRapController {
 	private HeThongRapService service;
 	public HeThongRapController(HeThongRapService heThongRapService) {
@@ -39,5 +41,11 @@ public class HeThongRapController {
 		}
 		HeThongRap addedHeThongRap = service.addNewHeThongRap(dto);
 		return ResponseHandler.getResponse(addedHeThongRap, HttpStatus.OK);
+	}
+	
+	@GetMapping("/LayThongTinCumRapTheoHeThong/{maHeThongRap}")
+	public Object getCumRapTheoHeThong(@PathVariable("maHeThongRap") Long maHeThongRap) {
+		List<LayCumRapTheoHeThongDto> cumRap = service.findByHeThongRap(maHeThongRap);
+		return ResponseHandler.getResponse(cumRap, HttpStatus.OK);
 	}
 }

@@ -39,7 +39,7 @@ public class Ve extends BaseEntity {
 	private Ghe ghe;
 	
 	@ManyToOne
-	@JoinColumn(name = "lichchieu_id")
+	@JoinColumn(name = "lichchieu_id", referencedColumnName = "id")
 	private LichChieu lichChieu;
 	
 }

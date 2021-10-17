@@ -4,6 +4,7 @@ import java.util.List;
 
 import cybersoft.java12.cenima_ticket.QuanLyRap.dto.CreateHeThongRapDto;
 import cybersoft.java12.cenima_ticket.QuanLyRap.dto.HeThongRapDto;
+import cybersoft.java12.cenima_ticket.QuanLyRap.dto.LayCumRapTheoHeThongDto;
 import cybersoft.java12.cenima_ticket.QuanLyRap.entity.HeThongRap;
 
 //abstraction
@@ -12,4 +13,6 @@ public interface HeThongRapService {
 	List<HeThongRapDto> findAll();
 
 	HeThongRap addNewHeThongRap(CreateHeThongRapDto dto);
+
+	List<LayCumRapTheoHeThongDto> findByHeThongRap(Long maHeThongRap);
 }

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/eticket
+    url: jdbc:postgresql://localhost:5432/eticket_test
     username: postgres
     password: 1234
   jpa:
