@@ -23,15 +23,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	}
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		Optional<NguoiDung> user=repository.findByTaiKhoan(username);
-		if(!user.isPresent())
+		
+		NguoiDung user = repository.findByTaiKhoan(username);
+		
+		if(user == null)
 			throw new UsernameNotFoundException("Username is not existed.");
-		Set<GrantedAuthority> authorities = getAuthorities(user.get().getLoaiNguoiDung());
-		return new UserDetailsDto(username, user.get().getMatKhau(), authorities);
+		
+		Set<GrantedAuthority> authorities = getAuthorities(user.getLoaiNguoiDung());
+		return new UserDetailsDto(username, user.getMatKhau(), authorities);
 		
 	}
 	private Set<GrantedAuthority> getAuthorities(String loaiNguoiDung) {
+		
 		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority(loaiNguoiDung));
 		return authorities;

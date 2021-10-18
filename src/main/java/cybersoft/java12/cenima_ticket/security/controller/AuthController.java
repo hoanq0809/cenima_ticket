@@ -26,8 +26,8 @@ public class AuthController {
 	private static final Logger logger = LoggerFactory.getLogger(Jwts.class);
 	private final AuthenticationManager authenticationManager;
 	private final JwtUtils jwtUtils; 
+	
 	public AuthController(AuthenticationManager authenticationManager,JwtUtils jwtUtils) {
-		// TODO Auto-generated constructor stub
 		this.authenticationManager=authenticationManager;
 		this.jwtUtils=jwtUtils;
 	}
@@ -35,7 +35,7 @@ public class AuthController {
 	public Object login(@Valid @RequestBody LoginDto dto,BindingResult errs) {
 		if(errs.hasErrors())
 			return ResponseHandler.getResponse(errs, HttpStatus.BAD_REQUEST);
-		Authentication auth=null;
+		Authentication auth = null;
 		try {
 			auth=authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(dto.getTaiKhoan(), dto.getMatKhau())
