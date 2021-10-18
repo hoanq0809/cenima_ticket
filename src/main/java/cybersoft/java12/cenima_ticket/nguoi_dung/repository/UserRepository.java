@@ -14,6 +14,7 @@ public interface UserRepository extends JpaRepository<NguoiDung, Long> {
 
 	int countByEmail(String lowerCase);
 	@Query("SELECT nd FROM NguoiDung nd WHERE nd.taiKhoan=?1")
+	
 	Optional<NguoiDung> findByTaiKhoan(String username);
 
 }

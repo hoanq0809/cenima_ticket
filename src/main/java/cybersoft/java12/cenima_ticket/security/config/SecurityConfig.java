@@ -1,6 +1,7 @@
 package cybersoft.java12.cenima_ticket.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -17,8 +18,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	@Lazy
 	@Autowired	
+	@Qualifier("userDetailsServiceImpl")
 	private UserDetailsService userDetailService;
 	
 	@Bean

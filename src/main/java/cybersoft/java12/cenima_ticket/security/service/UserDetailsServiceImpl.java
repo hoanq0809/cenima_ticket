@@ -1,22 +1,24 @@
 package cybersoft.java12.cenima_ticket.security.service;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import cybersoft.java12.cenima_ticket.nguoi_dung.entity.NguoiDung;
 import cybersoft.java12.cenima_ticket.nguoi_dung.repository.UserRepository;
 import cybersoft.java12.cenima_ticket.security.Dto.UserDetailsDto;
 
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 	private UserRepository repository;
 	public UserDetailsServiceImpl(UserRepository userRepository) {
-		
-		// TODO Auto-generated constructor stub
 		repository=userRepository;
 	}
 	@Override
@@ -29,15 +31,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return new UserDetailsDto(username, user.get().getMatKhau(), authorities);
 		
 	}
-	private Set<GrantedAuthority> getAuthorities(Set<Group> groups) {
-		Set<GrantedAuthority> authorities = new HashSet<>();
-		
-		for(Group group : groups) {
-			authorities.add(new SimpleGrantedAuthority(group.getName()));
-		}
-		
+	private Set<GrantedAuthority> getAuthorities(String loaiNguoiDung) {
+		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+		authorities.add(new SimpleGrantedAuthority(loaiNguoiDung));
 		return authorities;
 	}
+	
+	
 	
 
 }
