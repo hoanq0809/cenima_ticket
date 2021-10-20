@@ -37,11 +37,10 @@ public class CumRap extends BaseEntity {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name="heThongRap_Id", nullable = false)
 	private HeThongRap heThongRap;
-	//lst rap
+	
 	 
-	@OneToMany(mappedBy ="soRap", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Rap> lstRap = new HashSet<>();
-	//lst phim theo rap
+	@OneToMany(mappedBy ="cumRap", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Rap> listRap = new HashSet<>();
 	
 	/* helper method*/
 	 
@@ -94,11 +93,11 @@ public class CumRap extends BaseEntity {
 	}
 
 	public Set<Rap> getLstRap() {
-		return lstRap;
+		return listRap;
 	}
 
 	public void setLstRap(Set<Rap> lstRap) {
-		this.lstRap = lstRap;
+		this.listRap = lstRap;
 	}
 
 	public Set<Phim> getLstPhim() {

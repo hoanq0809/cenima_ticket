@@ -1,9 +1,15 @@
 package cybersoft.java12.cenima_ticket.QuanLyRap.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class CreateHeThongRapDto {
+	@NotBlank
 	private String name;
+	@NotBlank
 	private String maHeThong;
+	@NotBlank
 	private String biDanh;
+	@NotBlank
 	private String linkImageLogo;
 	/*getter and setter*/
 	public String getName() {

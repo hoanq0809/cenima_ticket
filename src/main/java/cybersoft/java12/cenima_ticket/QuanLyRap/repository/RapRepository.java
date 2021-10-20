@@ -7,14 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import cybersoft.java12.cenima_ticket.QuanLyRap.dto.CumRapDto;
-import cybersoft.java12.cenima_ticket.QuanLyRap.entity.CumRap;
+import cybersoft.java12.cenima_ticket.QuanLyRap.dto.RapDto;
+import cybersoft.java12.cenima_ticket.QuanLyRap.entity.Rap;
 
 @Repository
-public interface CumRapRepository extends JpaRepository<CumRap, Long> {
-
+public interface RapRepository extends JpaRepository<Rap, Long> {
+	
 	@Transactional(readOnly = true)
-	@Query("SELECT cr FROM CumRap cr")
-	List<CumRapDto> findAllDto();
+	@Query("SELECT r FROM Rap r")
+	List<RapDto> findAllDto();
 
 }

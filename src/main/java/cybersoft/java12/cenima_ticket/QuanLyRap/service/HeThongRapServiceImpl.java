@@ -36,8 +36,13 @@ public class HeThongRapServiceImpl implements HeThongRapService {
 	}
 
 	@Override
-	public List<LayCumRapTheoHeThongDto> findByHeThongRap(Long maHeThongRap) {
-		return repository.findByHeThongRap(maHeThongRap);
+	public List<LayCumRapTheoHeThongDto> findByMaHeThong(String maHeThong) {
+		return repository.findByMaHeThong(maHeThong);
+	}
+
+	@Override
+	public void deleteById(Long heThongRapId) {
+		repository.deleteById(heThongRapId);
 	}
 
 }

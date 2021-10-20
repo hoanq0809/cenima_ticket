@@ -18,7 +18,7 @@ public interface HeThongRapRepository extends JpaRepository<HeThongRap, Long> {
 	@Query("SELECT htr FROM HeThongRap htr")
 	List<HeThongRapDto> findAllDto();
 
-	@Query("SELECT htr FROM HeThongRap htr JOIN htr.cumRap r WHERE htr.id = ?1")
-	List<LayCumRapTheoHeThongDto> findByHeThongRap(Long maHeThongRap);
+//	@Query("SELECT cr FROM CumRap cr WHERE maHeThong = ?1") 
+	List<LayCumRapTheoHeThongDto> findByMaHeThong(String maHeThong);
 
 }

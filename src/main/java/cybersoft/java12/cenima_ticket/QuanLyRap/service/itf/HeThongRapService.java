@@ -14,5 +14,7 @@ public interface HeThongRapService {
 
 	HeThongRap addNewHeThongRap(CreateHeThongRapDto dto);
 
-	List<LayCumRapTheoHeThongDto> findByHeThongRap(Long maHeThongRap);
+	List<LayCumRapTheoHeThongDto> findByMaHeThong(String maHeThong);
+
+	void deleteById(Long heThongRapId);
 }

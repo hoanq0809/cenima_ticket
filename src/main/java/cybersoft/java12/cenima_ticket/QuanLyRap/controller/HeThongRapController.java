@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,7 @@ public class HeThongRapController {
 		return ResponseHandler.getResponse(ListHeThongRap, HttpStatus.OK);
 	}
 	
-	@PostMapping
+	@PostMapping("/admin/themHeThongRap")
 	public Object addHeThongRap(@Valid @RequestBody CreateHeThongRapDto dto, BindingResult errors) {
 		if (errors.hasErrors()) {
 			return ResponseHandler.getResponse(errors, HttpStatus.BAD_REQUEST);
@@ -42,10 +43,17 @@ public class HeThongRapController {
 		HeThongRap addedHeThongRap = service.addNewHeThongRap(dto);
 		return ResponseHandler.getResponse(addedHeThongRap, HttpStatus.OK);
 	}
+	@DeleteMapping("/admin/xoaHeThongRap/{heThongRap-id}")
+	public Object deleteHeThongRap(@PathVariable("heThongRap-id") Long heThongRapId) {
+		service.deleteById(heThongRapId);
+		
+		return ResponseHandler.getResponse(HttpStatus.OK);
+	}
 	
-	@GetMapping("/LayThongTinCumRapTheoHeThong/{maHeThongRap}")
-	public Object getCumRapTheoHeThong(@PathVariable("maHeThongRap") Long maHeThongRap) {
-		List<LayCumRapTheoHeThongDto> cumRap = service.findByHeThongRap(maHeThongRap);
+	
+	@GetMapping("/LayThongTinCumRapTheoHeThong/{heThongRap-maHeThong}")
+	public Object getCumRapTheoHeThong(@PathVariable("heThongRap-maHeThong") String maHeThong) {
+		List<LayCumRapTheoHeThongDto> cumRap = service.findByMaHeThong(maHeThong);
 		return ResponseHandler.getResponse(cumRap, HttpStatus.OK);
 	}
 }
