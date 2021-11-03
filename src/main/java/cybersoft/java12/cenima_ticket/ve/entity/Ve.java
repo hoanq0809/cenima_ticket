@@ -81,20 +81,8 @@ public class Ve extends BaseEntity {
 		this.thuocPhim = thuocPhim;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "lichchieu_id", referencedColumnName = "id")
+	private LichChieu lichChieu;
 	
-	public NguoiDung getNguoiDung() {
-		return nguoiDung;
-	}
-
-	public void setNguoiDung(NguoiDung nguoiDung) {
-		this.nguoiDung = nguoiDung;
-	}
-
-	public Ghe getGhe() {
-		return ghe;
-	}
-
-	public void setGhe(Ghe ghe) {
-		this.ghe = ghe;
-	}
 }
