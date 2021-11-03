@@ -1,6 +1,7 @@
 package cybersoft.java12.cenima_ticket.QuanLyRap.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -43,6 +44,11 @@ public class HeThongRapServiceImpl implements HeThongRapService {
 	@Override
 	public void deleteById(Long heThongRapId) {
 		repository.deleteById(heThongRapId);
+	}
+
+	@Override
+	public Optional<HeThongRap> findHeThongRapById(Long heThongRapId) {
+		return repository.findById(heThongRapId);
 	}
 
 }

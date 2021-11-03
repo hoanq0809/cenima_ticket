@@ -1,6 +1,7 @@
 package cybersoft.java12.cenima_ticket.QuanLyRap.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -34,6 +35,13 @@ public class HeThongRapController {
 		List<HeThongRapDto> ListHeThongRap = service.findAll();
 		return ResponseHandler.getResponse(ListHeThongRap, HttpStatus.OK);
 	}
+	
+	@GetMapping("/LayThongTinHeThongRapTheoId/{heThongRap-Id}")
+	public Object findHeThongRapById(@PathVariable("heThongRap-Id") Long heThongRapId) {
+		Optional<HeThongRap> heThongRapTheoId = service.findHeThongRapById(heThongRapId);
+		return ResponseHandler.getResponse(heThongRapTheoId, HttpStatus.OK);
+	}
+
 	
 	@PostMapping("/admin/themHeThongRap")
 	public Object addHeThongRap(@Valid @RequestBody CreateHeThongRapDto dto, BindingResult errors) {

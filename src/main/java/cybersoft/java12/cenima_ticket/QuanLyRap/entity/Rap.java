@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
 import cybersoft.java12.cenima_ticket.film.entity.LichChieu;
 
@@ -25,6 +27,7 @@ public class Rap extends BaseEntity {
 	@Column(name = "cumRap_Id", insertable = false, updatable = false)
 	private Long cumRapId;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name="cumRap_Id",nullable=false)
 	private CumRap cumRap;
@@ -35,7 +38,8 @@ public class Rap extends BaseEntity {
 	
 	@OneToMany(mappedBy = "rap", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<LichChieu> suatChieus = new HashSet<>();
-	
+	/* helper method */
+
 	/*getter setter*/
 	public String getTenRap() {
 		return tenRap;
@@ -43,10 +47,32 @@ public class Rap extends BaseEntity {
 	public void setTenRap(String tenRap) {
 		this.tenRap = tenRap;
 	}
-	public CumRap getThuocCumRap() {
+
+	public Long getCumRapId() {
+		return cumRapId;
+	}
+	public void setCumRapId(Long cumRapId) {
+		this.cumRapId = cumRapId;
+	}
+
+	public CumRap getCumRap() {
 		return cumRap;
 	}
-	public void setThuocCumRap(CumRap thuocCumRap) {
-		this.cumRap = thuocCumRap;
+	public void setCumRap(CumRap cumRap) {
+		this.cumRap = cumRap;
+	}
+
+	public Set<Ghe> getListGhe() {
+		return listGhe;
+	}
+	public void setListGhe(Set<Ghe> listGhe) {
+		this.listGhe = listGhe;
+	}
+
+	public Set<LichChieu> getSuatChieus() {
+		return suatChieus;
+	}
+	public void setSuatChieus(Set<LichChieu> suatChieus) {
+		this.suatChieus = suatChieus;
 	}
 }

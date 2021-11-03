@@ -43,6 +43,9 @@ public class CumRap extends BaseEntity {
 	private Set<Rap> listRap = new HashSet<>();
 	
 	/* helper method*/
+	public void addRap(Rap rap) {
+		this.listRap.add(rap);
+	}
 	 
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinTable( name="eticket_danh_sach_phim",
