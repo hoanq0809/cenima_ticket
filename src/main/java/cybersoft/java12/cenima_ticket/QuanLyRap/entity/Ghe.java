@@ -22,15 +22,56 @@ public class Ghe extends BaseEntity{
 	@NotNull
 	private int soGhe;
 	
-	@Column(name="rap_id", insertable = false, updatable = false)
-	private Long rapId;
+	// @Column(name="rap_id", insertable = false, updatable = false)
+	// private Long rapId;
 	
+	// @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	// @JoinColumn(name="rap_id")
+	// private Rap Rap;
+	@NotNull
+	private String tenGhe;
+	public String getTenGhe() {
+		return tenGhe;
+	}
+	public void setTenGhe(String tenGhe) {
+		this.tenGhe = tenGhe;
+	}
+	public Boolean getDaDat() {
+		return daDat;
+	}
+	public void setDaDat(Boolean daDat) {
+		this.daDat = daDat;
+	}
+	public long getRapID() {
+		return rapID;
+	}
+	public void setRapID(long rapID) {
+		this.rapID = rapID;
+	}
+	public Rap getThuocRap() {
+		return thuocRap;
+	}
+	public void setThuocRap(Rap thuocRap) {
+		this.thuocRap = thuocRap;
+	}
+	public Ve getVe() {
+		return ve;
+	}
+	public void setVe(Ve ve) {
+		this.ve = ve;
+	}
+
+	
+	@NotNull
+	private Boolean daDat=false;
+	@Column(name="rap_id")
+	private long rapID;
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name="rap_id")
-	private Rap Rap;
+	
+	@JoinColumn(name="rap_id",insertable = false,updatable = false)
+	private Rap rap;
 		
-	@OneToOne
-	@JoinColumn(name = "idVe")
+	@OneToOne(mappedBy = "ghe", fetch = FetchType.LAZY)
 	private Ve ve;
 	
 	public String getLoaiGhe() {

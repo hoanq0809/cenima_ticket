@@ -12,17 +12,19 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import cybersoft.java12.cenima_ticket.QuanLyRap.entity.CumRap;
 import cybersoft.java12.cenima_ticket.common.entity.BaseEntity;
+import cybersoft.java12.cenima_ticket.ve.entity.Ve;
 
 @Entity
 @Table(name = "eticket_phim")
 public class Phim extends BaseEntity {
 	
 	@Column(name="ten_phim")
-//	@NotNull
+	@NotNull
 	@Size(min= 3, max = 50)
 	private String tenPhim;
 	@Column(name="bi_danh")
@@ -34,11 +36,14 @@ public class Phim extends BaseEntity {
 	@Column(name="mo_ta")
 	private String moTa;
 	@Column(name="ngay_khoi_chieu")
-//	@NotNull
+	@NotNull
 	private Date ngayKhoiChieu;
 	@Column(name="the_loai")
-//	@NotNull
+	@NotNull
 	private String theLoai;
+	@Column(name="thoi_luong_phim")
+//	@NotNull
+	private int thoiLuongPhim;
 	
 	
 	@OneToMany(mappedBy = "films", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -49,6 +54,9 @@ public class Phim extends BaseEntity {
 	public String getTenPhim() {
 		return tenPhim;
 	}
+	
+	@OneToMany(mappedBy = "thuocPhim", fetch = FetchType.LAZY)
+	private Set<Ve> ve = new HashSet<>(); 
 
 	public void setTenPhim(String tenPhim) {
 		this.tenPhim = tenPhim;

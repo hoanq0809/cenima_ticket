@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 
 public class CreatePhimDto {
 	@NotBlank
-//	@Size(min = 3,max = 50,  message = "{phim.ten.size}")
+	@Size(min = 3,max = 50,  message = "{phim.ten.size}")
 	private String tenPhim;
 
 	private String biDanh;
